@@ -1,7 +1,6 @@
-# Current State Correction and Offline Runner
+# About, Peeking Game, and Skills List
 
-- [x] Restore Current State content to title case and increase its label slightly.
-- [x] Remove the “YOUR ASCII SELF — ADD LATER” caption from the portrait module.
-- [x] Replace the LinkedIn icon with a more refined link treatment.
-- [x] Replace Signal Catch with a compact custom-character offline runner game.
-- [x] Validate the copy, icon, and runner interaction on desktop and mobile, then save an updated checkpoint.
+- [x] Replace the hero introduction with the selected playful About line.
+- [x] Move the unchanged Bit Runner card behind the ASCII portrait so it peeks out without obscuring the portrait.
+- [x] Add a skills list in the game’s former lower-left hero position using Pragya’s confirmed technologies.
+- [x] Validate the layered hero layout and save an updated checkpoint.

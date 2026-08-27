@@ -92,6 +92,11 @@ const fieldNotes = [
   ["currently looping", "building in public, tinkering with agent workflows, and collecting good questions"],
 ];
 
+const skillGroups = [
+  { label: "AI SYSTEMS", items: ["Agentic AI", "RAG", "PyTorch", "Vector DB"] },
+  { label: "BUILD STACK", items: ["Python", "Django", "Postgres", "REST APIs"] },
+];
+
 const asciiPortrait = [
   "       .-''''-.",
   "     .'  _  _  '.",
@@ -274,7 +279,7 @@ export default function Home() {
             <div className="hero-copy">
               <p className="eyebrow">root:~$ <span>whoami</span></p>
               <h1>Hi :)<br />I&apos;m Pragya</h1>
-              <p className="hero-intro">A final-year AIML student turning curious questions into systems, sketches, and occasional rabbit holes worth keeping.</p>
+              <p className="hero-intro">21. Powered by coffee, curiosity, and a mildly concerning number of open notebooks.</p>
             </div>
 
             <div className="portrait-module">
@@ -291,6 +296,16 @@ export default function Home() {
               <p><CircleDot size={14} /> Current State</p>
               <strong>Learning In Public<br />Building With Intent</strong>
               <span>Last Compiled: Just Now</span>
+            </div>
+
+            <div className="skills-panel">
+              <div className="skills-panel-top"><span>things_i_know</span><span>08</span></div>
+              {skillGroups.map((group) => (
+                <div className="skill-group" key={group.label}>
+                  <span>{group.label}</span>
+                  <div>{group.items.map((skill) => <i key={skill}>{skill}</i>)}</div>
+                </div>
+              ))}
             </div>
 
             <div className="game-block">
