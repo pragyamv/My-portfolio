@@ -182,8 +182,7 @@ export default function Home() {
               <button type="button" className="boot-skip" onClick={() => setLoading(false)}>skip intro <ChevronRight size={15} /></button>
             </div>
             <div className="boot-copy">
-              <p className="eyebrow">01 / booting after-hours workspace</p>
-              <h1>follow the light<br />into the machine.</h1>
+              <p className="eyebrow">booting world</p>
               <div className="boot-meter" aria-label={`${bootProgress}% loaded`}>
                 <span style={{ transform: `scaleX(${bootProgress / 100})` }} />
               </div>
