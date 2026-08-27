@@ -294,7 +294,7 @@ export default function Home() {
             </div>
 
             <div className="game-block">
-              <span className="game-kicker">A small game:</span>
+              <span className="game-kicker">a small game for you</span>
               <div className="runner-game" aria-label="Bit Runner mini game">
                 <div className="runner-game-top"><span>bit_runner.exe</span><strong>score {String(runnerScore).padStart(2, "0")}</strong></div>
                 <p>{runnerCrashed ? "signal dropped — retry?" : "jump the data blocks"}</p>
