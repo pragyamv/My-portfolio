@@ -45,3 +45,10 @@
 - [x] Set the loading sequence duration to exactly four seconds.
 - [x] Generate a Minecraft-style night sky with block clouds and a mixed blue, green, pink, purple, and red city-light palette.
 - [x] Validate the focused change and save an updated checkpoint.
+
+# Pragya Workspace Personalization
+
+- [x] Replace the hero headline with “Hi :)” and “I’m Pragya” on separate lines.
+- [x] Change the terminal prompt from root@sidequest to root.
+- [x] Rename the top-left identity label as a Pragya root-folder name.
+- [x] Validate the personalized copy and save an updated checkpoint.

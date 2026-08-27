@@ -201,7 +201,7 @@ export default function Home() {
         <header className="app-header">
           <button className="brand-lockup" onClick={() => navigateTo("home")} aria-label="Go to beginning">
             <img src="/manus-storage/sidequest-prompt-mark_c6087525.png" alt="" />
-            <span>SIDEQUEST://</span>
+            <span>root/pragya/</span>
           </button>
           <div className="header-status">
             <span className="online-dot" /> <span>portfolio.exe</span>
@@ -241,8 +241,8 @@ export default function Home() {
             <div className="hero-serial">USER_01 <span>◌</span> AIML / REMOTE / 2026</div>
             <div className="signal-route route-one"><i /> <i /> <i /></div>
             <div className="hero-copy">
-              <p className="eyebrow">root@sidequest:~$ <span>whoami</span></p>
-              <h1>models, <span className="glitch-command">mischief</span><br />&amp; midnight builds.</h1>
+              <p className="eyebrow">root <span>whoami</span></p>
+              <h1>Hi : )<br />I&apos;m Pragya</h1>
               <p className="hero-intro">A final-year AIML student turning curious questions into systems, sketches, and occasional rabbit holes worth keeping.</p>
               <div className="hero-actions">
                 <button type="button" className="signal-button" onClick={() => navigateTo("work")}><Play size={15} fill="currentColor" /> open project dossiers</button>
