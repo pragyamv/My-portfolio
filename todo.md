@@ -26,3 +26,10 @@
 - [x] Replace the current #0000CD accent system with #0000FF throughout the loader and portfolio interface.
 - [x] Constrain the final portal transition so the star-filled Tokyo background remains visible during entry.
 - [x] Validate the revised scene and accent trial, then save an updated checkpoint.
+
+# Full Minecraft Loading World Rebuild
+
+- [x] Review the supplied Minecraft skin and use its character design as the loading-scene reference.
+- [x] Regenerate the entire environment as a cohesive Minecraft-style world, including all terrain, city structures, sky, tree, laptop, and portal elements.
+- [x] Move the girl to a more central-right placement while retaining intentional empty space on the left.
+- [x] Validate the revised loader and preserve the #0000FF portal interaction, then save an updated checkpoint.

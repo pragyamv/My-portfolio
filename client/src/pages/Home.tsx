@@ -249,7 +249,7 @@ export default function Home() {
                 <button type="button" className="quiet-button" onClick={() => navigateTo("sidequests")}>read field notes <ArrowDownRight size={17} /></button>
               </div>
               <div className="entry-memory">
-              <div className="entry-memory-image"><img src="/manus-storage/sidequest-voxel-tokyo-bright-stars_966de2d2.png" alt="Block-world student working at a bright, star-filled Tokyo night skyline" /></div>
+              <div className="entry-memory-image"><img src="/manus-storage/sidequest-full-minecraft-tokyo-entry_92a8de31.png" alt="Minecraft-style cyber-mecha girl working at a laptop beside a Tokyo-inspired block city" /></div>
                 <div><span>entry_memory://hill_01</span><strong>night world → laptop channel → this workspace</strong></div>
               </div>
             </div>
