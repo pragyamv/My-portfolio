@@ -275,6 +275,26 @@ export default function Home() {
               <p className="eyebrow">root:~$ <span>whoami</span></p>
               <h1>Hi :)<br />I&apos;m Pragya</h1>
               <p className="hero-intro">A final-year AIML student turning curious questions into systems, sketches, and occasional rabbit holes worth keeping.</p>
+            </div>
+
+            <div className="portrait-module">
+              <div className="module-tab"><span>identity.ascii</span><span>×</span></div>
+              <div className="portrait-grid" />
+              <pre aria-label="Editable ASCII portrait placeholder">{asciiPortrait}</pre>
+              <div className="portrait-label">
+                <span>◒ 001</span>
+              </div>
+              <div className="portrait-corner">+<br />+</div>
+            </div>
+
+            <div className="live-readout">
+              <p><CircleDot size={14} /> Current State</p>
+              <strong>Learning In Public<br />Building With Intent</strong>
+              <span>Last Compiled: Just Now</span>
+            </div>
+
+            <div className="game-block">
+              <span className="game-kicker">A small game:</span>
               <div className="runner-game" aria-label="Bit Runner mini game">
                 <div className="runner-game-top"><span>bit_runner.exe</span><strong>score {String(runnerScore).padStart(2, "0")}</strong></div>
                 <p>{runnerCrashed ? "signal dropped — retry?" : "jump the data blocks"}</p>
@@ -299,22 +319,6 @@ export default function Home() {
                   {runnerCrashed && <span className="runner-prompt">click to retry</span>}
                 </div>
               </div>
-            </div>
-
-            <div className="portrait-module">
-              <div className="module-tab"><span>identity.ascii</span><span>×</span></div>
-              <div className="portrait-grid" />
-              <pre aria-label="Editable ASCII portrait placeholder">{asciiPortrait}</pre>
-              <div className="portrait-label">
-                <span>◒ 001</span>
-              </div>
-              <div className="portrait-corner">+<br />+</div>
-            </div>
-
-            <div className="live-readout">
-              <p><CircleDot size={14} /> Current State</p>
-              <strong>Learning In Public<br />Building With Intent</strong>
-              <span>Last Compiled: Just Now</span>
             </div>
           </section>
 
