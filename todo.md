@@ -1,9 +1,7 @@
-# Pragya Contact, Navigation, and Readability Refinement
+# Refined Typography, Social Links, and Hero Mini-Game
 
-- [x] Link GitHub to `https://github.com/pragyamv` and label it as Pragya’s GitHub.
-- [x] Add LinkedIn, Medium, and email links using the supplied profile URLs and address.
-- [x] Widen the command rail and increase its labels for improved readability.
-- [x] Replace the first four navigation items with icon-free labels: Home, Projects, Side Quests, and Blog.
-- [x] Remove the top-left logo and the entry-memory panel.
-- [x] Reduce the “Hi :) / I’m Pragya” scale and enlarge the USER_01, current-state, and portfolio.exe sections.
-- [x] Validate the revised layout, links, and responsive interface, then save an updated checkpoint.
+- [x] Replace the portfolio-wide monospace typography with a more refined technical mono font.
+- [x] Refine the GitHub, LinkedIn, Medium, and Mail icons and use the requested capitalized labels.
+- [x] Capitalize Current State content and make its heading use bl (#0000FF).
+- [x] Replace the hero action buttons and their adjacent open space with a small, non-distracting interactive game.
+- [x] Validate the typography, link treatment, and mini-game on desktop and mobile, then save an updated checkpoint.

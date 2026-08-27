@@ -15,7 +15,6 @@ import {
   Github,
   Linkedin,
   Mail,
-  Play,
   X,
   Zap,
 } from "lucide-react";
@@ -124,6 +123,8 @@ export default function Home() {
   const [activeNav, setActiveNav] = useState("home");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [istTime, setIstTime] = useState(formatIST());
+  const [signalScore, setSignalScore] = useState(0);
+  const [signalCell, setSignalCell] = useState(6);
 
   useEffect(() => {
     const steps = [
@@ -146,6 +147,12 @@ export default function Home() {
   const navigateTo = (target: string) => {
     document.getElementById(target)?.scrollIntoView({ behavior: "smooth", block: "start" });
     setActiveNav(target);
+  };
+
+  const catchSignal = (cell: number) => {
+    if (cell !== signalCell) return;
+    setSignalScore((score) => score + 1);
+    setSignalCell((current) => (current + 7) % 15);
   };
 
   return (
@@ -199,10 +206,10 @@ export default function Home() {
         <aside className="command-rail" aria-label="Portfolio navigation">
           <div className="rail-line" />
           {[
-            ["home", "home"],
-            ["work", "projects"],
-            ["sidequests", "side quests"],
-            ["blog", "blog"],
+            ["home", "Home"],
+            ["work", "Projects"],
+            ["sidequests", "Side Quests"],
+            ["blog", "Blog"],
           ].map(([id, label]) => {
             return (
               <button
@@ -223,10 +230,10 @@ export default function Home() {
           })}
           <div className="rail-spacer" />
           <div className="rail-socials" aria-label="Pragya's social links">
-            <a className="rail-command rail-social" href="https://github.com/pragyamv" target="_blank" rel="noreferrer"><Github size={16} /><span>my github</span></a>
-            <a className="rail-command rail-social" href="https://www.linkedin.com/in/pragyamv/" target="_blank" rel="noreferrer"><Linkedin size={16} /><span>linkedin</span></a>
-            <a className="rail-command rail-social" href="https://medium.com/@pragyamv" target="_blank" rel="noreferrer"><BookOpen size={16} /><span>medium</span></a>
-            <a className="rail-command rail-social" href="mailto:pragyamvikram@gmail.com"><Mail size={16} /><span>mail</span></a>
+            <a className="rail-command rail-social" href="https://github.com/pragyamv" target="_blank" rel="noreferrer"><Github size={16} /><span>GitHub</span></a>
+            <a className="rail-command rail-social" href="https://www.linkedin.com/in/pragyamv/" target="_blank" rel="noreferrer"><Linkedin size={16} /><span>LinkedIn</span></a>
+            <a className="rail-command rail-social" href="https://medium.com/@pragyamv" target="_blank" rel="noreferrer"><BookOpen size={16} /><span>Medium</span></a>
+            <a className="rail-command rail-social" href="mailto:pragyamvikram@gmail.com"><Mail size={16} /><span>Mail</span></a>
           </div>
           <span className="rail-orbit">▲</span>
         </aside>
@@ -239,9 +246,22 @@ export default function Home() {
               <p className="eyebrow">root:~$ <span>whoami</span></p>
               <h1>Hi :)<br />I&apos;m Pragya</h1>
               <p className="hero-intro">A final-year AIML student turning curious questions into systems, sketches, and occasional rabbit holes worth keeping.</p>
-              <div className="hero-actions">
-                <button type="button" className="signal-button" onClick={() => navigateTo("work")}><Play size={15} fill="currentColor" /> open project dossiers</button>
-                <button type="button" className="quiet-button" onClick={() => navigateTo("sidequests")}>read field notes <ArrowDownRight size={17} /></button>
+              <div className="signal-game" aria-label="Signal Catch mini game">
+                <div className="signal-game-top"><span>signal_catch.exe</span><strong>score {String(signalScore).padStart(2, "0")}</strong></div>
+                <p>catch the live node</p>
+                <div className="signal-grid" role="group" aria-label="Click the highlighted signal node">
+                  {Array.from({ length: 15 }, (_, cell) => (
+                    <button
+                      type="button"
+                      key={cell}
+                      className={`signal-cell ${cell === signalCell ? "is-live" : ""}`}
+                      onClick={() => catchSignal(cell)}
+                      aria-label={cell === signalCell ? "Catch the live signal" : "Inactive signal node"}
+                    >
+                      {cell === signalCell && <span />}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -257,9 +277,9 @@ export default function Home() {
             </div>
 
             <div className="live-readout">
-              <p><CircleDot size={14} /> current state</p>
-              <strong>learning in public<br />building with intent</strong>
-              <span>last compiled: just now</span>
+              <p><CircleDot size={14} /> CURRENT STATE</p>
+              <strong>LEARNING IN PUBLIC<br />BUILDING WITH INTENT</strong>
+              <span>LAST COMPILED: JUST NOW</span>
             </div>
           </section>
 
@@ -348,9 +368,9 @@ export default function Home() {
             <p>For collaborations, friendly rabbit holes, and projects that need a curious pair of hands.</p>
             <div className="contact-actions">
               <a href="mailto:pragyamvikram@gmail.com" className="email-button"><AtSign size={17} /> <span><small>mail://pragya</small>pragyamvikram@gmail.com</span></a>
-              <a href="https://github.com/pragyamv" target="_blank" rel="noreferrer" className="contact-link"><Github size={16} /><span>github://pragyamv</span> <ArrowUpRight size={16} /></a>
-              <a href="https://www.linkedin.com/in/pragyamv/" target="_blank" rel="noreferrer" className="contact-link"><Linkedin size={16} /><span>linkedin://pragyamv</span> <ArrowUpRight size={16} /></a>
-              <a href="https://medium.com/@pragyamv" target="_blank" rel="noreferrer" className="contact-link"><BookOpen size={16} /><span>medium://@pragyamv</span> <ArrowUpRight size={16} /></a>
+              <a href="https://github.com/pragyamv" target="_blank" rel="noreferrer" className="contact-link"><Github size={16} /><span>GitHub</span> <ArrowUpRight size={16} /></a>
+              <a href="https://www.linkedin.com/in/pragyamv/" target="_blank" rel="noreferrer" className="contact-link"><Linkedin size={16} /><span>LinkedIn</span> <ArrowUpRight size={16} /></a>
+              <a href="https://medium.com/@pragyamv" target="_blank" rel="noreferrer" className="contact-link"><BookOpen size={16} /><span>Medium</span> <ArrowUpRight size={16} /></a>
             </div>
           </section>
 

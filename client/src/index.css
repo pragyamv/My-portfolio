@@ -2,15 +2,15 @@
  * NIGHT SHIFT CONSOLE — global visual system.
  * Midnight ink, Signal Cyan, mono typography, signal routes and tactile pixel texture.
  */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "IBM Plex Mono", monospace;
-  --font-mono: "Space Mono", monospace;
+  --font-sans: "JetBrains Mono", monospace;
+  --font-mono: "JetBrains Mono", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -54,7 +54,7 @@
 
 * { border-color: var(--border); }
 html { scroll-behavior: smooth; background: var(--ink); }
-body { margin: 0; min-width: 320px; background: var(--ink); color: var(--paper); font-family: "IBM Plex Mono", monospace; }
+body { margin: 0; min-width: 320px; background: var(--ink); color: var(--paper); font-family: "JetBrains Mono", monospace; }
 button, a { font: inherit; }
 button { border: 0; }
 button:not(:disabled), a[href] { cursor: pointer; }
@@ -156,4 +156,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--signal); outlin
 .entry-memory { display: none; }
 @media (max-width: 900px) { .command-rail { width: auto; min-height: 62px; height: auto; padding: .34rem .45rem; overflow-x: auto; gap: .1rem; }.rail-command { flex: 0 0 auto; width: auto; padding: .58rem .62rem; font-size: .64rem; white-space: nowrap; }.rail-command span { display: inline; }.rail-socials { display: flex; margin-left: auto; gap: .05rem; }.rail-social { padding: .56rem; }.rail-social span { display: none; }.rail-spacer { display: none; }.workspace { margin-left: 0; } }
 @media (max-width: 640px) { .hero-copy h1 { font-size: clamp(2.25rem, 11vw, 3.45rem); }.header-status { font-size: .65rem; }.hero-serial { font-size: .68rem; }.live-readout p { font-size: .66rem; }.live-readout strong { font-size: .8rem; } }
+/* Typography and contact refinement: use one modern technical mono across all explicit utility rules and give external links a compact signal-chip treatment. */
+.boot-sequence, .boot-sequence *, .portfolio-app, .portfolio-app * { font-family: "JetBrains Mono", monospace !important; }
+.rail-social { margin-top: .1rem; padding: .54rem .68rem; border: 1px solid rgba(246,247,251,.14); background: rgba(255,255,255,.015); }.rail-social svg, .contact-link > svg:first-child { box-sizing: content-box; padding: .25rem; border: 1px solid rgba(246,247,251,.62); color: #050509; background: #f6f7fb; box-shadow: 2px 2px 0 #0000ff; transition: color .18s var(--ease-out), background .18s var(--ease-out), box-shadow .18s var(--ease-out), transform .18s var(--ease-out); }.rail-social:hover { color: #fff; border-color: rgba(0,0,255,.8); transform: translateX(3px); }.rail-social:hover svg, .contact-link:hover > svg:first-child { color: #fff; background: #0000ff; box-shadow: 3px 3px 0 rgba(246,247,251,.72); transform: translate(-1px, -1px); }.contact-link { gap: .5rem; }.contact-link > svg:last-child { margin-left: -.12rem; }.portfolio-app .live-readout p { color: #0000ff; text-shadow: 0 0 9px rgba(0,0,255,.68); }
+/* Tiny hero game: a static, click-led signal puzzle designed as a calm easter egg rather than a competing call-to-action. */
+.signal-game { width: min(100%, 19rem); margin-top: 2.15rem; padding: .72rem .82rem .78rem; border: 1px solid rgba(246,247,251,.28); background: rgba(255,255,255,.025); }.signal-game-top { display: flex; justify-content: space-between; gap: .6rem; color: var(--paper); font-size: .57rem; letter-spacing: .045em; text-transform: uppercase; }.signal-game-top strong { color: #0000ff; font-weight: 600; }.signal-game p { margin: .34rem 0 .58rem; color: var(--dim); font-size: .55rem; }.signal-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .28rem; }.signal-cell { display: grid; place-items: center; aspect-ratio: 1.65; border: 1px solid rgba(246,247,251,.15); background: rgba(0,0,0,.38); transition: border-color .14s var(--ease-out), background .14s var(--ease-out), transform .14s var(--ease-out); }.signal-cell:hover { border-color: rgba(246,247,251,.54); }.signal-cell:active { transform: scale(.94); }.signal-cell.is-live { border-color: #0000ff; background: rgba(0,0,255,.16); box-shadow: inset 0 0 12px rgba(0,0,255,.23); }.signal-cell.is-live span { width: .28rem; height: .28rem; background: #f6f7fb; box-shadow: 0 0 9px #0000ff, 0 0 2px #fff; animation: blink 1.3s infinite alternate; }
+@media (max-width: 640px) { .signal-game { width: min(100%, 20rem); margin-top: 1.7rem; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
