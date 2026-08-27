@@ -128,13 +128,13 @@ export default function Home() {
 
   useEffect(() => {
     const steps = [
-      window.setTimeout(() => setBootProgress(22), 760),
-      window.setTimeout(() => setBootProgress(46), 1760),
-      window.setTimeout(() => setBootProgress(68), 2660),
-      window.setTimeout(() => setBootProgress(82), 3570),
-      window.setTimeout(() => setBootProgress(92), 4300),
-      window.setTimeout(() => setBootProgress(100), 5000),
-      window.setTimeout(() => setLoading(false), 5750),
+      window.setTimeout(() => setBootProgress(22), 250),
+      window.setTimeout(() => setBootProgress(46), 900),
+      window.setTimeout(() => setBootProgress(68), 1550),
+      window.setTimeout(() => setBootProgress(82), 2250),
+      window.setTimeout(() => setBootProgress(92), 2850),
+      window.setTimeout(() => setBootProgress(100), 3450),
+      window.setTimeout(() => setLoading(false), 4000),
     ];
     return () => steps.forEach(window.clearTimeout);
   }, []);
@@ -249,7 +249,7 @@ export default function Home() {
                 <button type="button" className="quiet-button" onClick={() => navigateTo("sidequests")}>read field notes <ArrowDownRight size={17} /></button>
               </div>
               <div className="entry-memory">
-              <div className="entry-memory-image"><img src="/manus-storage/sidequest-minecraft-shibuya-stars_bea4d58e.png" alt="Minecraft-style cyber-mecha girl working at a laptop beneath a pixel-star night sky and neon block city" /></div>
+              <div className="entry-memory-image"><img src="/manus-storage/sidequest-minecraft-clouds-spectrum-city_c3a864d1.png" alt="Minecraft-style cyber-mecha girl working at a laptop beneath block clouds, stars, and a spectrum-lit block city" /></div>
                 <div><span>entry_memory://hill_01</span><strong>night world → laptop channel → this workspace</strong></div>
               </div>
             </div>

@@ -39,3 +39,9 @@
 - [x] Generate a recognizably Minecraft-style night sky with stars and Shibuya-inspired non-yellow tech light colours in the city.
 - [x] Extend the loader’s initial viewing time without altering the approved composition or portal interaction.
 - [x] Validate the focused revision and save an updated checkpoint.
+
+# Four-Second Clouds and City Palette
+
+- [x] Set the loading sequence duration to exactly four seconds.
+- [x] Generate a Minecraft-style night sky with block clouds and a mixed blue, green, pink, purple, and red city-light palette.
+- [x] Validate the focused change and save an updated checkpoint.
