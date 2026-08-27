@@ -97,25 +97,6 @@ const skillGroups = [
   { label: "BUILD STACK", items: ["Python", "Django", "Postgres", "REST APIs"] },
 ];
 
-const asciiOutline = [
-  "           .-^^^^^^^^-.",
-  "       _.-'     /\\     `-._",
-  "    .-'        /  \\        `-.",
-  "   /          /    \\          \\",
-  "  /          |      |          \\",
-  " |           |      |           |",
-  " |           |      |           |",
-  " |           |      |           |",
-  "  \\           \\    /           /",
-  "   \\           `--'           /",
-  "    `-.          ||          .-'",
-  "       `--.      ||      .--'",
-  "           \\   /  \\   /",
-  "        .---\\_/____\\_/---.",
-  "       /______|    |______\\",
-  "      /_______|____|_______\\",
-].join("\n");
-
 function formatIST() {
   return new Intl.DateTimeFormat("en-IN", {
     hour: "2-digit",
@@ -252,9 +233,15 @@ export default function Home() {
             </div>
 
             <div className="portrait-module">
-              <div className="module-tab"><span>identity.ascii</span><span>×</span></div>
+              <div className="module-tab"><span>identity.sprite</span><span>×</span></div>
               <div className="portrait-grid" />
-              <pre aria-label="Keyboard-character portrait outline">{asciiOutline}</pre>
+              <div className="portrait-artwork">
+                <img
+                  className="portrait-pixel-art"
+                  src="/manus-storage/pragya-pixel-game-avatar_feca23f3.png"
+                  alt="Pixel-game portrait of Pragya"
+                />
+              </div>
               <div className="portrait-label">
                 <span>◒ 001</span>
               </div>

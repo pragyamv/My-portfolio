@@ -1,6 +1,6 @@
-# Yellow Accent Migration
+# Recognisable Pixel-Game Portrait
 
-- [x] Locate all active orange and amber accents in the portfolio workspace.
-- [x] Replace the active orange and amber accents with #FFFF00.
-- [x] Validate the revised color hierarchy: former amber signals now display as #FFFF00 without disrupting white or bl accents.
-- [x] Validate the #FFFF00 accent update, ready for the release checkpoint.
+- [x] Generate a recognisable pixel-game portrait using Pragya’s supplied photo as the identity reference.
+- [x] Replace the plain ASCII outline while retaining the established standalone identity card.
+- [x] Validate the corrected portrait on desktop and mobile: the avatar is recognisable, intentionally pixelated, and contained in the identity card.
+- [x] Validate the corrected portrait and production build, ready for the release checkpoint.
