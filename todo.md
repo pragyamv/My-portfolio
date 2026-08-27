@@ -1,7 +1,7 @@
-# Refined Typography, Social Links, and Hero Mini-Game
+# Current State Correction and Offline Runner
 
-- [x] Replace the portfolio-wide monospace typography with a more refined technical mono font.
-- [x] Refine the GitHub, LinkedIn, Medium, and Mail icons and use the requested capitalized labels.
-- [x] Capitalize Current State content and make its heading use bl (#0000FF).
-- [x] Replace the hero action buttons and their adjacent open space with a small, non-distracting interactive game.
-- [x] Validate the typography, link treatment, and mini-game on desktop and mobile, then save an updated checkpoint.
+- [x] Restore Current State content to title case and increase its label slightly.
+- [x] Remove the “YOUR ASCII SELF — ADD LATER” caption from the portrait module.
+- [x] Replace the LinkedIn icon with a more refined link treatment.
+- [x] Replace Signal Catch with a compact custom-character offline runner game.
+- [x] Validate the copy, icon, and runner interaction on desktop and mobile, then save an updated checkpoint.

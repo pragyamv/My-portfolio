@@ -13,12 +13,11 @@ import {
   CircleDot,
   Cpu,
   Github,
-  Linkedin,
   Mail,
   X,
   Zap,
 } from "lucide-react";
-import { type CSSProperties, useEffect, useState } from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 type Project = {
@@ -123,8 +122,12 @@ export default function Home() {
   const [activeNav, setActiveNav] = useState("home");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [istTime, setIstTime] = useState(formatIST());
-  const [signalScore, setSignalScore] = useState(0);
-  const [signalCell, setSignalCell] = useState(6);
+  const [runnerActive, setRunnerActive] = useState(false);
+  const [runnerJumping, setRunnerJumping] = useState(false);
+  const [runnerCrashed, setRunnerCrashed] = useState(false);
+  const [runnerScore, setRunnerScore] = useState(0);
+  const [runnerObstacleKey, setRunnerObstacleKey] = useState(0);
+  const jumpRef = useRef(false);
 
   useEffect(() => {
     const steps = [
@@ -149,11 +152,37 @@ export default function Home() {
     setActiveNav(target);
   };
 
-  const catchSignal = (cell: number) => {
-    if (cell !== signalCell) return;
-    setSignalScore((score) => score + 1);
-    setSignalCell((current) => (current + 7) % 15);
+  const jumpRunner = () => {
+    if (runnerCrashed) {
+      setRunnerScore(0);
+      setRunnerCrashed(false);
+      setRunnerActive(true);
+      return;
+    }
+    if (!runnerActive) setRunnerActive(true);
+    if (jumpRef.current) return;
+    jumpRef.current = true;
+    setRunnerJumping(true);
+    window.setTimeout(() => {
+      jumpRef.current = false;
+      setRunnerJumping(false);
+    }, 580);
   };
+
+  useEffect(() => {
+    if (!runnerActive || runnerCrashed) return;
+    const timers: number[] = [];
+    const runCycle = () => {
+      setRunnerObstacleKey((key) => key + 1);
+      timers.push(window.setTimeout(() => {
+        if (jumpRef.current) setRunnerScore((score) => score + 1);
+        else setRunnerCrashed(true);
+      }, 1260));
+      timers.push(window.setTimeout(runCycle, 1800));
+    };
+    runCycle();
+    return () => timers.forEach(window.clearTimeout);
+  }, [runnerActive, runnerCrashed]);
 
   return (
     <div className="site-shell">
@@ -231,7 +260,7 @@ export default function Home() {
           <div className="rail-spacer" />
           <div className="rail-socials" aria-label="Pragya's social links">
             <a className="rail-command rail-social" href="https://github.com/pragyamv" target="_blank" rel="noreferrer"><Github size={16} /><span>GitHub</span></a>
-            <a className="rail-command rail-social" href="https://www.linkedin.com/in/pragyamv/" target="_blank" rel="noreferrer"><Linkedin size={16} /><span>LinkedIn</span></a>
+            <a className="rail-command rail-social" href="https://www.linkedin.com/in/pragyamv/" target="_blank" rel="noreferrer"><span className="linkedin-mark" aria-hidden="true">in</span><span>LinkedIn</span></a>
             <a className="rail-command rail-social" href="https://medium.com/@pragyamv" target="_blank" rel="noreferrer"><BookOpen size={16} /><span>Medium</span></a>
             <a className="rail-command rail-social" href="mailto:pragyamvikram@gmail.com"><Mail size={16} /><span>Mail</span></a>
           </div>
@@ -246,21 +275,28 @@ export default function Home() {
               <p className="eyebrow">root:~$ <span>whoami</span></p>
               <h1>Hi :)<br />I&apos;m Pragya</h1>
               <p className="hero-intro">A final-year AIML student turning curious questions into systems, sketches, and occasional rabbit holes worth keeping.</p>
-              <div className="signal-game" aria-label="Signal Catch mini game">
-                <div className="signal-game-top"><span>signal_catch.exe</span><strong>score {String(signalScore).padStart(2, "0")}</strong></div>
-                <p>catch the live node</p>
-                <div className="signal-grid" role="group" aria-label="Click the highlighted signal node">
-                  {Array.from({ length: 15 }, (_, cell) => (
-                    <button
-                      type="button"
-                      key={cell}
-                      className={`signal-cell ${cell === signalCell ? "is-live" : ""}`}
-                      onClick={() => catchSignal(cell)}
-                      aria-label={cell === signalCell ? "Catch the live signal" : "Inactive signal node"}
-                    >
-                      {cell === signalCell && <span />}
-                    </button>
-                  ))}
+              <div className="runner-game" aria-label="Bit Runner mini game">
+                <div className="runner-game-top"><span>bit_runner.exe</span><strong>score {String(runnerScore).padStart(2, "0")}</strong></div>
+                <p>{runnerCrashed ? "signal dropped — retry?" : "jump the data blocks"}</p>
+                <div
+                  className={`runner-stage ${runnerActive ? "is-running" : ""} ${runnerCrashed ? "is-crashed" : ""}`}
+                  role="button"
+                  tabIndex={0}
+                  onClick={jumpRunner}
+                  onKeyDown={(event) => {
+                    if (event.key === " " || event.key === "ArrowUp") {
+                      event.preventDefault();
+                      jumpRunner();
+                    }
+                  }}
+                  aria-label="Play Bit Runner. Click, press Space, or press up-arrow to jump."
+                >
+                  <div className="runner-stars"><i /><i /><i /><i /></div>
+                  <div className={`runner-bot ${runnerJumping ? "is-jumping" : ""}`} aria-hidden="true"><i className="bot-antenna" /><i className="bot-head" /><i className="bot-visor" /><i className="bot-body" /><i className="bot-foot bot-foot-left" /><i className="bot-foot bot-foot-right" /></div>
+                  <div key={runnerObstacleKey} className="runner-obstacle" aria-hidden="true"><i /><i /><i /></div>
+                  <div className="runner-ground" />
+                  {!runnerActive && <span className="runner-prompt">click / space to run</span>}
+                  {runnerCrashed && <span className="runner-prompt">click to retry</span>}
                 </div>
               </div>
             </div>
@@ -270,16 +306,15 @@ export default function Home() {
               <div className="portrait-grid" />
               <pre aria-label="Editable ASCII portrait placeholder">{asciiPortrait}</pre>
               <div className="portrait-label">
-                <span>YOUR ASCII SELF — ADD LATER</span>
                 <span>◒ 001</span>
               </div>
               <div className="portrait-corner">+<br />+</div>
             </div>
 
             <div className="live-readout">
-              <p><CircleDot size={14} /> CURRENT STATE</p>
-              <strong>LEARNING IN PUBLIC<br />BUILDING WITH INTENT</strong>
-              <span>LAST COMPILED: JUST NOW</span>
+              <p><CircleDot size={14} /> Current State</p>
+              <strong>Learning In Public<br />Building With Intent</strong>
+              <span>Last Compiled: Just Now</span>
             </div>
           </section>
 
@@ -369,7 +404,7 @@ export default function Home() {
             <div className="contact-actions">
               <a href="mailto:pragyamvikram@gmail.com" className="email-button"><AtSign size={17} /> <span><small>mail://pragya</small>pragyamvikram@gmail.com</span></a>
               <a href="https://github.com/pragyamv" target="_blank" rel="noreferrer" className="contact-link"><Github size={16} /><span>GitHub</span> <ArrowUpRight size={16} /></a>
-              <a href="https://www.linkedin.com/in/pragyamv/" target="_blank" rel="noreferrer" className="contact-link"><Linkedin size={16} /><span>LinkedIn</span> <ArrowUpRight size={16} /></a>
+              <a href="https://www.linkedin.com/in/pragyamv/" target="_blank" rel="noreferrer" className="contact-link"><span className="linkedin-mark" aria-hidden="true">in</span><span>LinkedIn</span> <ArrowUpRight size={16} /></a>
               <a href="https://medium.com/@pragyamv" target="_blank" rel="noreferrer" className="contact-link"><BookOpen size={16} /><span>Medium</span> <ArrowUpRight size={16} /></a>
             </div>
           </section>
