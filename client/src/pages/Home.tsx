@@ -17,7 +17,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import { type CSSProperties, useEffect, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 import { toast } from "sonner";
 
 type Project = {
@@ -127,14 +127,6 @@ export default function Home() {
   const [activeNav, setActiveNav] = useState("home");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [istTime, setIstTime] = useState(formatIST());
-  const [runnerActive, setRunnerActive] = useState(false);
-  const [runnerJumping, setRunnerJumping] = useState(false);
-  const [runnerCrashed, setRunnerCrashed] = useState(false);
-  const [runnerScore, setRunnerScore] = useState(0);
-  const [runnerObstacleKey, setRunnerObstacleKey] = useState(0);
-  const [gameOpen, setGameOpen] = useState(false);
-  const jumpRef = useRef(false);
-  const jumpedRoundRef = useRef(false);
 
   useEffect(() => {
     const steps = [
@@ -158,70 +150,6 @@ export default function Home() {
     document.getElementById(target)?.scrollIntoView({ behavior: "smooth", block: "start" });
     setActiveNav(target);
   };
-
-  const jumpRunner = () => {
-    if (runnerCrashed) return;
-    if (!runnerActive) setRunnerActive(true);
-    if (jumpRef.current) return;
-    jumpedRoundRef.current = true;
-    jumpRef.current = true;
-    setRunnerJumping(true);
-    window.setTimeout(() => {
-      jumpRef.current = false;
-      setRunnerJumping(false);
-    }, 580);
-  };
-
-  const closeRunner = () => {
-    setRunnerActive(false);
-    setRunnerJumping(false);
-    setRunnerCrashed(false);
-    setGameOpen(false);
-  };
-
-  const openRunner = () => {
-    setRunnerActive(false);
-    setRunnerJumping(false);
-    setRunnerCrashed(false);
-    setRunnerScore(0);
-    setGameOpen(true);
-  };
-
-  useEffect(() => {
-    if (!runnerActive || runnerCrashed) return;
-    const timers: number[] = [];
-    const runCycle = () => {
-      jumpedRoundRef.current = false;
-      setRunnerObstacleKey((key) => key + 1);
-      timers.push(window.setTimeout(() => {
-        if (jumpedRoundRef.current) setRunnerScore((score) => score + 1);
-        else {
-          setRunnerCrashed(true);
-          timers.push(window.setTimeout(() => {
-            setRunnerActive(false);
-            setRunnerCrashed(false);
-            setRunnerScore(0);
-            setGameOpen(false);
-          }, 220));
-        }
-      }, 1600));
-      timers.push(window.setTimeout(runCycle, 2100));
-    };
-    timers.push(window.setTimeout(runCycle, 850));
-    return () => timers.forEach(window.clearTimeout);
-  }, [runnerActive, runnerCrashed]);
-
-  useEffect(() => {
-    if (!gameOpen) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === " " || event.key === "ArrowUp") {
-        event.preventDefault();
-        jumpRunner();
-      }
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [gameOpen, runnerActive, runnerCrashed, runnerJumping]);
 
   return (
     <div className="site-shell">
@@ -316,56 +244,14 @@ export default function Home() {
               <p className="hero-intro">21. Powered by coffee, curiosity, and a mildly concerning number of open notebooks.</p>
             </div>
 
-            <div className="portrait-stack">
-              <div className="portrait-module">
-                <div className="module-tab"><span>identity.ascii</span><span>×</span></div>
-                <div className="portrait-grid" />
-                <pre aria-label="Editable ASCII portrait placeholder">{asciiPortrait}</pre>
-                <div className="portrait-label">
-                  <span>◒ 001</span>
-                </div>
-                <div className="portrait-corner">+<br />+</div>
+            <div className="portrait-module">
+              <div className="module-tab"><span>identity.ascii</span><span>×</span></div>
+              <div className="portrait-grid" />
+              <pre aria-label="Editable ASCII portrait placeholder">{asciiPortrait}</pre>
+              <div className="portrait-label">
+                <span>◒ 001</span>
               </div>
-
-              <div
-                className="game-block"
-                role="button"
-                tabIndex={0}
-                onClick={openRunner}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    openRunner();
-                  }
-                }}
-                aria-label="Open Bit Runner"
-              >
-                <span className="game-kicker">a small game for you</span>
-                <div className="runner-game" aria-label="Bit Runner mini game">
-                  <div className="runner-game-top"><span>bit_runner.exe</span><strong>score {String(runnerScore).padStart(2, "0")}</strong></div>
-                  <p>{runnerCrashed ? "signal dropped — retry?" : "jump the data blocks"}</p>
-                  <div
-                    className={`runner-stage ${runnerActive ? "is-running" : ""} ${runnerCrashed ? "is-crashed" : ""}`}
-                    role="button"
-                    tabIndex={0}
-                    onClick={jumpRunner}
-                    onKeyDown={(event) => {
-                      if (event.key === " " || event.key === "ArrowUp") {
-                        event.preventDefault();
-                        jumpRunner();
-                      }
-                    }}
-                    aria-label="Play Bit Runner. Click, press Space, or press up-arrow to jump."
-                  >
-                    <div className="runner-stars"><i /><i /><i /><i /></div>
-                    <div className={`runner-bot ${runnerJumping ? "is-jumping" : ""}`} aria-hidden="true"><i className="bot-antenna" /><i className="bot-head" /><i className="bot-visor" /><i className="bot-body" /><i className="bot-foot bot-foot-left" /><i className="bot-foot bot-foot-right" /></div>
-                    <div key={runnerObstacleKey} className="runner-obstacle" aria-hidden="true"><i /><i /><i /></div>
-                    <div className="runner-ground" />
-                    {!runnerActive && <span className="runner-prompt">click / space to run</span>}
-                    {runnerCrashed && <span className="runner-prompt">click to retry</span>}
-                  </div>
-                </div>
-              </div>
+              <div className="portrait-corner">+<br />+</div>
             </div>
 
             <div className="live-readout">
@@ -485,38 +371,6 @@ export default function Home() {
       </motion.div>
 
       <AnimatePresence>
-        {gameOpen && (
-          <motion.div className="runner-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={closeRunner}>
-            <motion.section className="runner-modal" initial={{ opacity: 0, y: 18, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 18, scale: 0.98 }} transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }} onClick={(event) => event.stopPropagation()} aria-label="Bit Runner game">
-              <button type="button" className="runner-close" onClick={closeRunner} aria-label="Close Bit Runner"><X size={18} /></button>
-              <span className="game-kicker">a small game for you</span>
-              <div className="runner-game">
-                <div className="runner-game-top"><span>bit_runner.exe</span><strong>score {String(runnerScore).padStart(2, "0")}</strong></div>
-                <p>{runnerCrashed ? "signal dropped — retry?" : "jump the data blocks"}</p>
-                <div
-                  className={`runner-stage ${runnerActive ? "is-running" : ""} ${runnerCrashed ? "is-crashed" : ""}`}
-                  role="button"
-                  tabIndex={0}
-                  onClick={jumpRunner}
-                  onKeyDown={(event) => {
-                    if (event.key === " " || event.key === "ArrowUp") {
-                      event.preventDefault();
-                      jumpRunner();
-                    }
-                  }}
-                  aria-label="Play Bit Runner. Click, press Space, or press up-arrow to jump."
-                >
-                  <div className="runner-stars"><i /><i /><i /><i /></div>
-                  <div className={`runner-bot ${runnerJumping ? "is-jumping" : ""}`} aria-hidden="true"><i className="bot-antenna" /><i className="bot-head" /><i className="bot-visor" /><i className="bot-body" /><i className="bot-foot bot-foot-left" /><i className="bot-foot bot-foot-right" /></div>
-                  <div key={runnerObstacleKey} className="runner-obstacle" aria-hidden="true"><i /><i /><i /></div>
-                  <div className="runner-ground" />
-                  {!runnerActive && <span className="runner-prompt">click / space to run</span>}
-                  {runnerCrashed && <span className="runner-prompt">click to retry</span>}
-                </div>
-              </div>
-            </motion.section>
-          </motion.div>
-        )}
         {selectedProject && (
           <motion.div className="dossier-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedProject(null)}>
             <motion.article
