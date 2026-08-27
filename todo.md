@@ -1,6 +1,6 @@
-# Skills Enlargement and Focused Runner Overlay
+# Precise Skills and ASCII-Game Layering
 
-- [x] Enlarge the things_i_know panel and its labels for stronger readability.
-- [x] Make the hidden runner card opaque, move it clear of the portrait’s route line, and add a hover peek.
-- [x] Open the runner in a blurred focused overlay on click and hide it automatically after a loss.
-- [x] Validate the refined hero interaction on desktop and mobile, then save an updated checkpoint.
+- [x] Rename the skills heading to “Things-I-know” and match the panel typography to the Learning In Public scale.
+- [x] Position the opaque game behind the left edge of the ASCII card, showing only its outer sliver and “a small game for you” label.
+- [x] Ensure hover only raises the hidden game card slightly and clicking opens the existing centered blurred-background play overlay.
+- [x] Validate the typography and layered behavior on desktop and mobile, then save an updated checkpoint.

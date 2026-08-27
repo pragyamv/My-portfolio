@@ -306,14 +306,56 @@ export default function Home() {
               <p className="hero-intro">21. Powered by coffee, curiosity, and a mildly concerning number of open notebooks.</p>
             </div>
 
-            <div className="portrait-module">
-              <div className="module-tab"><span>identity.ascii</span><span>×</span></div>
-              <div className="portrait-grid" />
-              <pre aria-label="Editable ASCII portrait placeholder">{asciiPortrait}</pre>
-              <div className="portrait-label">
-                <span>◒ 001</span>
+            <div className="portrait-stack">
+              <div className="portrait-module">
+                <div className="module-tab"><span>identity.ascii</span><span>×</span></div>
+                <div className="portrait-grid" />
+                <pre aria-label="Editable ASCII portrait placeholder">{asciiPortrait}</pre>
+                <div className="portrait-label">
+                  <span>◒ 001</span>
+                </div>
+                <div className="portrait-corner">+<br />+</div>
               </div>
-              <div className="portrait-corner">+<br />+</div>
+
+              <div
+                className="game-block"
+                role="button"
+                tabIndex={0}
+                onClick={openRunner}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    openRunner();
+                  }
+                }}
+                aria-label="Open Bit Runner"
+              >
+                <span className="game-kicker">a small game for you</span>
+                <div className="runner-game" aria-label="Bit Runner mini game">
+                  <div className="runner-game-top"><span>bit_runner.exe</span><strong>score {String(runnerScore).padStart(2, "0")}</strong></div>
+                  <p>{runnerCrashed ? "signal dropped — retry?" : "jump the data blocks"}</p>
+                  <div
+                    className={`runner-stage ${runnerActive ? "is-running" : ""} ${runnerCrashed ? "is-crashed" : ""}`}
+                    role="button"
+                    tabIndex={0}
+                    onClick={jumpRunner}
+                    onKeyDown={(event) => {
+                      if (event.key === " " || event.key === "ArrowUp") {
+                        event.preventDefault();
+                        jumpRunner();
+                      }
+                    }}
+                    aria-label="Play Bit Runner. Click, press Space, or press up-arrow to jump."
+                  >
+                    <div className="runner-stars"><i /><i /><i /><i /></div>
+                    <div className={`runner-bot ${runnerJumping ? "is-jumping" : ""}`} aria-hidden="true"><i className="bot-antenna" /><i className="bot-head" /><i className="bot-visor" /><i className="bot-body" /><i className="bot-foot bot-foot-left" /><i className="bot-foot bot-foot-right" /></div>
+                    <div key={runnerObstacleKey} className="runner-obstacle" aria-hidden="true"><i /><i /><i /></div>
+                    <div className="runner-ground" />
+                    {!runnerActive && <span className="runner-prompt">click / space to run</span>}
+                    {runnerCrashed && <span className="runner-prompt">click to retry</span>}
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="live-readout">
@@ -323,7 +365,7 @@ export default function Home() {
             </div>
 
             <div className="skills-panel">
-              <div className="skills-panel-top"><span>things_i_know</span><span>08</span></div>
+              <div className="skills-panel-top"><span>Things-I-know</span><span>08</span></div>
               {skillGroups.map((group) => (
                 <div className="skill-group" key={group.label}>
                   <span>{group.label}</span>
@@ -332,45 +374,6 @@ export default function Home() {
               ))}
             </div>
 
-            <div
-              className="game-block"
-              role="button"
-              tabIndex={0}
-              onClick={openRunner}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  openRunner();
-                }
-              }}
-              aria-label="Open Bit Runner"
-            >
-              <span className="game-kicker">a small game for you</span>
-              <div className="runner-game" aria-label="Bit Runner mini game">
-                <div className="runner-game-top"><span>bit_runner.exe</span><strong>score {String(runnerScore).padStart(2, "0")}</strong></div>
-                <p>{runnerCrashed ? "signal dropped — retry?" : "jump the data blocks"}</p>
-                <div
-                  className={`runner-stage ${runnerActive ? "is-running" : ""} ${runnerCrashed ? "is-crashed" : ""}`}
-                  role="button"
-                  tabIndex={0}
-                  onClick={jumpRunner}
-                  onKeyDown={(event) => {
-                    if (event.key === " " || event.key === "ArrowUp") {
-                      event.preventDefault();
-                      jumpRunner();
-                    }
-                  }}
-                  aria-label="Play Bit Runner. Click, press Space, or press up-arrow to jump."
-                >
-                  <div className="runner-stars"><i /><i /><i /><i /></div>
-                  <div className={`runner-bot ${runnerJumping ? "is-jumping" : ""}`} aria-hidden="true"><i className="bot-antenna" /><i className="bot-head" /><i className="bot-visor" /><i className="bot-body" /><i className="bot-foot bot-foot-left" /><i className="bot-foot bot-foot-right" /></div>
-                  <div key={runnerObstacleKey} className="runner-obstacle" aria-hidden="true"><i /><i /><i /></div>
-                  <div className="runner-ground" />
-                  {!runnerActive && <span className="runner-prompt">click / space to run</span>}
-                  {runnerCrashed && <span className="runner-prompt">click to retry</span>}
-                </div>
-              </div>
-            </div>
           </section>
 
           <section id="work" className="work-section section-anchor">
