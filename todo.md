@@ -1,5 +1,7 @@
-# Restore Standalone ASCII Portrait
+# Faithful ASCII Identity Portrait
 
-- [x] Remove all Bit Runner state, behavior, markup, overlay, and styling.
-- [x] Restore the ASCII portrait panel as a standalone right-side hero module at its original dimensions.
-- [x] Validate the clean hero layout on desktop and mobile, then save an updated checkpoint.
+- [x] Generate a faithful ASCII-style portrait based on Pragya’s supplied photograph.
+- [x] Replace the placeholder ASCII portrait in the existing standalone identity panel without changing its layout.
+- [x] Validate the new personal portrait on desktop: recognisable, contained, and visually aligned with the terminal card.
+- [x] Validate the new personal portrait on mobile: the full card, readout, and skills panel remain clear at 375px width.
+- [x] Validate the finished portrait update and production build, ready for the release checkpoint.

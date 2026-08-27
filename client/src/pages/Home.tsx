@@ -1,6 +1,6 @@
 /**
  * NIGHT SHIFT CONSOLE — personal AIML portfolio workspace.
- * Midnight ink, Signal Cyan, mono typography, asymmetric dossiers, playful precision.
+ * White-first terminal workspace on black with bl (#0000FF) reserved for selected signals.
  */
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -97,20 +97,6 @@ const skillGroups = [
   { label: "BUILD STACK", items: ["Python", "Django", "Postgres", "REST APIs"] },
 ];
 
-const asciiPortrait = [
-  "       .-''''-.",
-  "     .'  _  _  '.",
-  "    /   (o)(o)   \\",
-  "   |      __      |",
-  "   |   .-____-.   |",
-  "    \\   \\____/   /",
-  "     '.  \\__/  .'",
-  "       '-.__.-'",
-  "      _/|  |\\_",
-  "     /  |  |  \\",
-  "    /___|__|___\\",
-].join("\n");
-
 function formatIST() {
   return new Intl.DateTimeFormat("en-IN", {
     hour: "2-digit",
@@ -122,7 +108,9 @@ function formatIST() {
 }
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(
+    () => !new URLSearchParams(window.location.search).has("skipIntro"),
+  );
   const [bootProgress, setBootProgress] = useState(3);
   const [activeNav, setActiveNav] = useState("home");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -247,7 +235,13 @@ export default function Home() {
             <div className="portrait-module">
               <div className="module-tab"><span>identity.ascii</span><span>×</span></div>
               <div className="portrait-grid" />
-              <pre aria-label="Editable ASCII portrait placeholder">{asciiPortrait}</pre>
+              <div className="portrait-artwork">
+                <img
+                  className="portrait-ascii-art"
+                  src="/manus-storage/pragya-faithful-ascii-portrait_4f4de42c.png"
+                  alt="ASCII-art portrait of Pragya"
+                />
+              </div>
               <div className="portrait-label">
                 <span>◒ 001</span>
               </div>
