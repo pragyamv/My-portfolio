@@ -59,3 +59,10 @@
 - [x] Change “Hi : )” to “Hi :).”
 - [x] Set the top identity line to “GenAI / ML / 2026.”
 - [x] Validate the text updates and provide high-contrast accent-colour options without changing the selected palette.
+
+# White Main Accent and bl Highlight System
+
+- [x] Change the main-site accent hierarchy to white while preserving the black background.
+- [x] Retain bl (#0000FF) only on selected component highlights.
+- [x] Preserve bl throughout the loading scene without changing its approved artwork.
+- [x] Validate the white-first hierarchy and save an updated checkpoint.
