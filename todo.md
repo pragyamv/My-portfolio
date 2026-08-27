@@ -1,6 +1,6 @@
-# About, Peeking Game, and Skills List
+# Skills Enlargement and Focused Runner Overlay
 
-- [x] Replace the hero introduction with the selected playful About line.
-- [x] Move the unchanged Bit Runner card behind the ASCII portrait so it peeks out without obscuring the portrait.
-- [x] Add a skills list in the game’s former lower-left hero position using Pragya’s confirmed technologies.
-- [x] Validate the layered hero layout and save an updated checkpoint.
+- [x] Enlarge the things_i_know panel and its labels for stronger readability.
+- [x] Make the hidden runner card opaque, move it clear of the portrait’s route line, and add a hover peek.
+- [x] Open the runner in a blurred focused overlay on click and hide it automatically after a loss.
+- [x] Validate the refined hero interaction on desktop and mobile, then save an updated checkpoint.
