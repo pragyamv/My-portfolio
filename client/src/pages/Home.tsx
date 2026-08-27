@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { type CSSProperties, useEffect, useState } from "react";
 import { toast } from "sonner";
+import suppliedAsciiPortrait from "/@fs/home/ubuntu/upload/pasted_content_2.txt?raw";
 
 type Project = {
   id: string;
@@ -233,14 +234,10 @@ export default function Home() {
             </div>
 
             <div className="portrait-module">
-              <div className="module-tab"><span>identity.trace</span><span>×</span></div>
+              <div className="module-tab"><span>identity.ascii</span><span>×</span></div>
               <div className="portrait-grid" />
               <div className="portrait-artwork">
-                <img
-                  className="portrait-terminal-dots"
-                  src="/manus-storage/pragya-terminal-dot-portrait_b4029177.png"
-                  alt="Terminal-dot portrait of Pragya"
-                />
+                <pre className="supplied-ascii-portrait" aria-label="Supplied ASCII portrait">{suppliedAsciiPortrait}</pre>
               </div>
               <div className="portrait-label">
                 <span>◒ 001</span>
