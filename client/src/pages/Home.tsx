@@ -7,16 +7,15 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   AtSign,
+  BookOpen,
   Braces,
   ChevronRight,
   CircleDot,
-  Command,
-  Copy,
   Cpu,
-  FolderOpen,
   Github,
+  Linkedin,
+  Mail,
   Play,
-  Sparkles,
   X,
   Zap,
 } from "lucide-react";
@@ -149,15 +148,6 @@ export default function Home() {
     setActiveNav(target);
   };
 
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText("your.email@example.com");
-      toast.success("Email placeholder copied — replace it with your own.");
-    } catch {
-      toast("Add your email here when you are ready.");
-    }
-  };
-
   return (
     <div className="site-shell">
       <AnimatePresence>
@@ -199,10 +189,6 @@ export default function Home() {
         transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
       >
         <header className="app-header">
-          <button className="brand-lockup" onClick={() => navigateTo("home")} aria-label="Go to beginning">
-            <img src="/manus-storage/sidequest-prompt-mark_c6087525.png" alt="" />
-            <span>root/pragya/</span>
-          </button>
           <div className="header-status">
             <span className="online-dot" /> <span>portfolio.exe</span>
             <span className="header-divider" />
@@ -213,26 +199,35 @@ export default function Home() {
         <aside className="command-rail" aria-label="Portfolio navigation">
           <div className="rail-line" />
           {[
-            ["home", "./home", Command],
-            ["work", "./work", FolderOpen],
-            ["sidequests", "./sidequests", Sparkles],
-            ["contact", "./contact", AtSign],
-          ].map(([id, label, Icon]) => {
-            const NavigationIcon = Icon as typeof Command;
+            ["home", "home"],
+            ["work", "projects"],
+            ["sidequests", "side quests"],
+            ["blog", "blog"],
+          ].map(([id, label]) => {
             return (
               <button
                 type="button"
                 key={id as string}
                 className={`rail-command ${activeNav === id ? "active" : ""}`}
-                onClick={() => navigateTo(id as string)}
+                onClick={() => {
+                  if (id === "blog") {
+                    toast("Blog archive coming soon.");
+                    return;
+                  }
+                  navigateTo(id as string);
+                }}
               >
-                <NavigationIcon size={16} strokeWidth={1.7} />
                 <span>{label as string}</span>
               </button>
             );
           })}
           <div className="rail-spacer" />
-          <a className="rail-command icon-only" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub placeholder"><Github size={17} /></a>
+          <div className="rail-socials" aria-label="Pragya's social links">
+            <a className="rail-command rail-social" href="https://github.com/pragyamv" target="_blank" rel="noreferrer"><Github size={16} /><span>my github</span></a>
+            <a className="rail-command rail-social" href="https://www.linkedin.com/in/pragyamv/" target="_blank" rel="noreferrer"><Linkedin size={16} /><span>linkedin</span></a>
+            <a className="rail-command rail-social" href="https://medium.com/@pragyamv" target="_blank" rel="noreferrer"><BookOpen size={16} /><span>medium</span></a>
+            <a className="rail-command rail-social" href="mailto:pragyamvikram@gmail.com"><Mail size={16} /><span>mail</span></a>
+          </div>
           <span className="rail-orbit">▲</span>
         </aside>
 
@@ -247,10 +242,6 @@ export default function Home() {
               <div className="hero-actions">
                 <button type="button" className="signal-button" onClick={() => navigateTo("work")}><Play size={15} fill="currentColor" /> open project dossiers</button>
                 <button type="button" className="quiet-button" onClick={() => navigateTo("sidequests")}>read field notes <ArrowDownRight size={17} /></button>
-              </div>
-              <div className="entry-memory">
-              <div className="entry-memory-image"><img src="/manus-storage/sidequest-minecraft-clouds-spectrum-city_c3a864d1.png" alt="Minecraft-style cyber-mecha girl working at a laptop beneath block clouds, stars, and a spectrum-lit block city" /></div>
-                <div><span>entry_memory://hill_01</span><strong>night world → laptop channel → this workspace</strong></div>
               </div>
             </div>
 
@@ -356,8 +347,10 @@ export default function Home() {
             <h2>got an interesting<br /><span className="glitch-command">problem?</span></h2>
             <p>For collaborations, friendly rabbit holes, and projects that need a curious pair of hands.</p>
             <div className="contact-actions">
-              <button type="button" className="email-button" onClick={copyEmail}><AtSign size={17} /> <span><small>replace://email</small>your.email@example.com</span> <Copy size={15} /></button>
-              <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="contact-link"><span>link_in://replace-handle</span> <ArrowUpRight size={16} /></a>
+              <a href="mailto:pragyamvikram@gmail.com" className="email-button"><AtSign size={17} /> <span><small>mail://pragya</small>pragyamvikram@gmail.com</span></a>
+              <a href="https://github.com/pragyamv" target="_blank" rel="noreferrer" className="contact-link"><Github size={16} /><span>github://pragyamv</span> <ArrowUpRight size={16} /></a>
+              <a href="https://www.linkedin.com/in/pragyamv/" target="_blank" rel="noreferrer" className="contact-link"><Linkedin size={16} /><span>linkedin://pragyamv</span> <ArrowUpRight size={16} /></a>
+              <a href="https://medium.com/@pragyamv" target="_blank" rel="noreferrer" className="contact-link"><BookOpen size={16} /><span>medium://@pragyamv</span> <ArrowUpRight size={16} /></a>
             </div>
           </section>
 
