@@ -39,7 +39,7 @@ const projects: Project[] = [
   {
     id: "noise-atlas",
     number: "01",
-    title: "Bengaluru Noise Atlas",
+    title: "Night Signal Atlas",
     type: "audio ML · mapping",
     summary:
       "A city-scale listening experiment that turns everyday sound into an explorable, classifiable signal.",
@@ -128,11 +128,13 @@ export default function Home() {
 
   useEffect(() => {
     const steps = [
-      window.setTimeout(() => setBootProgress(28), 350),
-      window.setTimeout(() => setBootProgress(55), 1100),
-      window.setTimeout(() => setBootProgress(78), 1950),
-      window.setTimeout(() => setBootProgress(100), 2940),
-      window.setTimeout(() => setLoading(false), 3600),
+      window.setTimeout(() => setBootProgress(22), 420),
+      window.setTimeout(() => setBootProgress(46), 1180),
+      window.setTimeout(() => setBootProgress(68), 1920),
+      window.setTimeout(() => setBootProgress(82), 2750),
+      window.setTimeout(() => setBootProgress(92), 3420),
+      window.setTimeout(() => setBootProgress(100), 4000),
+      window.setTimeout(() => setLoading(false), 4650),
     ];
     return () => steps.forEach(window.clearTimeout);
   }, []);
@@ -161,7 +163,7 @@ export default function Home() {
       <AnimatePresence>
         {loading && (
           <motion.section
-            className={`boot-sequence ${bootProgress >= 78 ? "boot-zoom" : ""}`}
+            className={`boot-sequence ${bootProgress >= 46 ? "boot-lock" : ""} ${bootProgress >= 92 ? "boot-enter" : ""}`}
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.45 } }}
             aria-label="Loading portfolio"
@@ -169,7 +171,12 @@ export default function Home() {
             <div className="boot-image" />
             <div className="boot-vignette" />
             <div className="boot-grid" />
-            <div className="boot-laptop-target" aria-hidden="true" />
+            <div className="boot-flight-path" aria-hidden="true"><span /><span /><span /></div>
+            <div className="boot-laptop-target" aria-hidden="true">
+              <span className="target-caption">screen_portal://ready</span>
+              <span className="target-scan" />
+              <span className="target-cursor">enter_</span>
+            </div>
             <div className="boot-header">
               <div className="boot-brand"><img src="/manus-storage/sidequest-prompt-mark_c6087525.png" alt="" /> SIDEQUEST://</div>
               <button type="button" className="boot-skip" onClick={() => setLoading(false)}>skip intro <ChevronRight size={15} /></button>
@@ -180,7 +187,7 @@ export default function Home() {
               <div className="boot-meter" aria-label={`${bootProgress}% loaded`}>
                 <span style={{ transform: `scaleX(${bootProgress / 100})` }} />
               </div>
-              <p className="boot-log">{bootProgress < 45 ? "locating constellations..." : bootProgress < 78 ? "opening laptop channel..." : "workspace signal acquired..."} <b>{String(bootProgress).padStart(3, "0")}%</b></p>
+              <p className="boot-log">{bootProgress < 46 ? "scanning block-world coordinates..." : bootProgress < 92 ? "screen locked · portal handshake..." : "entering laptop workspace..."} <b>{String(bootProgress).padStart(3, "0")}%</b></p>
             </div>
           </motion.section>
         )}
@@ -232,7 +239,7 @@ export default function Home() {
 
         <main className="workspace">
           <section id="home" className="hero-workspace section-anchor">
-            <div className="hero-serial">USER_01 <span>◌</span> AIML / INDIA / 2026</div>
+            <div className="hero-serial">USER_01 <span>◌</span> AIML / REMOTE / 2026</div>
             <div className="signal-route route-one"><i /> <i /> <i /></div>
             <div className="hero-copy">
               <p className="eyebrow">root@sidequest:~$ <span>whoami</span></p>
@@ -243,7 +250,7 @@ export default function Home() {
                 <button type="button" className="quiet-button" onClick={() => navigateTo("sidequests")}>read field notes <ArrowDownRight size={17} /></button>
               </div>
               <div className="entry-memory">
-                <div className="entry-memory-image"><img src="/manus-storage/sidequest-pixel-night-entry_10f269a4.png" alt="Pixel-art student working under a tree above a lit city" /></div>
+              <div className="entry-memory-image"><img src="/manus-storage/sidequest-voxel-laptop-entry_127a7b15.png" alt="Block-world student working at a glowing laptop beneath a night sky" /></div>
                 <div><span>entry_memory://hill_01</span><strong>night world → laptop channel → this workspace</strong></div>
               </div>
             </div>
