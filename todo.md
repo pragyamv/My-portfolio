@@ -1,6 +1,6 @@
-# Recognisable Pixel-Game Portrait
+# Terminal-Dot Identity Portrait
 
-- [x] Generate a recognisable pixel-game portrait using Pragya’s supplied photo as the identity reference.
-- [x] Replace the plain ASCII outline while retaining the established standalone identity card.
-- [x] Validate the corrected portrait on desktop and mobile: the avatar is recognisable, intentionally pixelated, and contained in the identity card.
-- [x] Validate the corrected portrait and production build, ready for the release checkpoint.
+- [x] Generate a recognisable dotted terminal portrait based on Pragya’s supplied photo and the supplied style reference.
+- [x] Replace the current pixel-game avatar while retaining the established standalone identity card.
+- [x] Validate the terminal-dot portrait at desktop and mobile widths: the restrained navy-and-cyan dot treatment remains clear and contained.
+- [x] Validate the terminal-dot portrait and production build, ready for the release checkpoint.

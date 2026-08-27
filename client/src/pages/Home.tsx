@@ -233,13 +233,13 @@ export default function Home() {
             </div>
 
             <div className="portrait-module">
-              <div className="module-tab"><span>identity.sprite</span><span>×</span></div>
+              <div className="module-tab"><span>identity.trace</span><span>×</span></div>
               <div className="portrait-grid" />
               <div className="portrait-artwork">
                 <img
-                  className="portrait-pixel-art"
-                  src="/manus-storage/pragya-pixel-game-avatar_feca23f3.png"
-                  alt="Pixel-game portrait of Pragya"
+                  className="portrait-terminal-dots"
+                  src="/manus-storage/pragya-terminal-dot-portrait_b4029177.png"
+                  alt="Terminal-dot portrait of Pragya"
                 />
               </div>
               <div className="portrait-label">
