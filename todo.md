@@ -52,3 +52,10 @@
 - [x] Change the terminal prompt from root@sidequest to root.
 - [x] Rename the top-left identity label as a Pragya root-folder name.
 - [x] Validate the personalized copy and save an updated checkpoint.
+
+# Terminal Copy Correction and Accent Options
+
+- [x] Restore the terminal-style prompt around the root-only label.
+- [x] Change “Hi : )” to “Hi :).”
+- [x] Set the top identity line to “GenAI / ML / 2026.”
+- [x] Validate the text updates and provide high-contrast accent-colour options without changing the selected palette.

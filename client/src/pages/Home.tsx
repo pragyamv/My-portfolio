@@ -238,11 +238,11 @@ export default function Home() {
 
         <main className="workspace">
           <section id="home" className="hero-workspace section-anchor">
-            <div className="hero-serial">USER_01 <span>◌</span> AIML / REMOTE / 2026</div>
+            <div className="hero-serial">USER_01 <span>◌</span> GenAI / ML / 2026</div>
             <div className="signal-route route-one"><i /> <i /> <i /></div>
             <div className="hero-copy">
-              <p className="eyebrow">root <span>whoami</span></p>
-              <h1>Hi : )<br />I&apos;m Pragya</h1>
+              <p className="eyebrow">root:~$ <span>whoami</span></p>
+              <h1>Hi :)<br />I&apos;m Pragya</h1>
               <p className="hero-intro">A final-year AIML student turning curious questions into systems, sketches, and occasional rabbit holes worth keeping.</p>
               <div className="hero-actions">
                 <button type="button" className="signal-button" onClick={() => navigateTo("work")}><Play size={15} fill="currentColor" /> open project dossiers</button>
