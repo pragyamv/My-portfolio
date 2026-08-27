@@ -134,6 +134,7 @@ export default function Home() {
   const [runnerObstacleKey, setRunnerObstacleKey] = useState(0);
   const [gameOpen, setGameOpen] = useState(false);
   const jumpRef = useRef(false);
+  const jumpedRoundRef = useRef(false);
 
   useEffect(() => {
     const steps = [
@@ -159,14 +160,10 @@ export default function Home() {
   };
 
   const jumpRunner = () => {
-    if (runnerCrashed) {
-      setRunnerScore(0);
-      setRunnerCrashed(false);
-      setRunnerActive(true);
-      return;
-    }
+    if (runnerCrashed) return;
     if (!runnerActive) setRunnerActive(true);
     if (jumpRef.current) return;
+    jumpedRoundRef.current = true;
     jumpRef.current = true;
     setRunnerJumping(true);
     window.setTimeout(() => {
@@ -194,9 +191,10 @@ export default function Home() {
     if (!runnerActive || runnerCrashed) return;
     const timers: number[] = [];
     const runCycle = () => {
+      jumpedRoundRef.current = false;
       setRunnerObstacleKey((key) => key + 1);
       timers.push(window.setTimeout(() => {
-        if (jumpRef.current) setRunnerScore((score) => score + 1);
+        if (jumpedRoundRef.current) setRunnerScore((score) => score + 1);
         else {
           setRunnerCrashed(true);
           timers.push(window.setTimeout(() => {
@@ -206,12 +204,24 @@ export default function Home() {
             setGameOpen(false);
           }, 220));
         }
-      }, 1260));
-      timers.push(window.setTimeout(runCycle, 1800));
+      }, 1600));
+      timers.push(window.setTimeout(runCycle, 2100));
     };
-    runCycle();
+    timers.push(window.setTimeout(runCycle, 850));
     return () => timers.forEach(window.clearTimeout);
   }, [runnerActive, runnerCrashed]);
+
+  useEffect(() => {
+    if (!gameOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === " " || event.key === "ArrowUp") {
+        event.preventDefault();
+        jumpRunner();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [gameOpen, runnerActive, runnerCrashed, runnerJumping]);
 
   return (
     <div className="site-shell">
