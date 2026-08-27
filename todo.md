@@ -11,3 +11,10 @@
 - [x] Replace the loader’s cyan-green accent treatment with #0000CD.
 - [x] Generate and apply a Minecraft-inspired voxel Tokyo night skyline without changing the scene’s character or portal focus.
 - [x] Validate the revised loader and save an updated checkpoint.
+
+# Global Midnight Blue Correction
+
+- [x] Replace greenish-blue accent usage with #0000CD throughout the loader and portfolio interface.
+- [x] Change the main portfolio background from midnight navy to black without flattening panel hierarchy.
+- [x] Regenerate the voxel Tokyo skyline with balanced warm, cool, and neon city-light colours on a dark night background.
+- [x] Validate the corrected colour system and save an updated checkpoint.
