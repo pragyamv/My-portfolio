@@ -33,3 +33,9 @@
 - [x] Regenerate the entire environment as a cohesive Minecraft-style world, including all terrain, city structures, sky, tree, laptop, and portal elements.
 - [x] Move the girl to a more central-right placement while retaining intentional empty space on the left.
 - [x] Validate the revised loader and preserve the #0000FF portal interaction, then save an updated checkpoint.
+
+# Focused Night Sky and Timing Polish
+
+- [x] Generate a recognizably Minecraft-style night sky with stars and Shibuya-inspired non-yellow tech light colours in the city.
+- [x] Extend the loader’s initial viewing time without altering the approved composition or portal interaction.
+- [x] Validate the focused revision and save an updated checkpoint.
