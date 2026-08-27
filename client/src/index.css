@@ -169,3 +169,6 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--signal); outlin
 .skills-panel { width: min(100%, 31rem); }.skills-panel-top { font-size: .86rem; }.skill-group { grid-template-columns: 7rem minmax(0, 1fr); }.skill-group > span { font-size: .86rem; }.skill-group i { font-size: .86rem; }
 @media (max-width: 640px) { .skills-panel { width: 100%; margin-left: 0; padding: .95rem; }.skill-group { grid-template-columns: 5.35rem minmax(0, 1fr); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+/* Yellow accent migration: all former amber interface signals now use pure #FFFF00. */
+:root { --amber: #ffff00; }
+.placeholder-note { background: rgba(255,255,0,.06); }

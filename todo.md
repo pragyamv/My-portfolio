@@ -1,6 +1,6 @@
-# Keyboard-Character ASCII Outline
+# Yellow Accent Migration
 
-- [x] Replace the generated portrait render with a minimal white outline made strictly from keyboard characters.
-- [x] Keep the outline suggestive of Pragya’s center-parted hair, face, and blazer without rendering facial detail.
-- [x] Validate the revised identity card at desktop and mobile widths: the strictly keyboard-character outline is readable and contained.
-- [x] Validate the revised identity panel and production build, ready for the release checkpoint.
+- [x] Locate all active orange and amber accents in the portfolio workspace.
+- [x] Replace the active orange and amber accents with #FFFF00.
+- [x] Validate the revised color hierarchy: former amber signals now display as #FFFF00 without disrupting white or bl accents.
+- [x] Validate the #FFFF00 accent update, ready for the release checkpoint.
