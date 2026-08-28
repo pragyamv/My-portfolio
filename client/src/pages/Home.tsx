@@ -131,7 +131,10 @@ export default function Home() {
       window.setTimeout(() => setBootProgress(82), 2250),
       window.setTimeout(() => setBootProgress(92), 2850),
       window.setTimeout(() => setBootProgress(100), 3450),
-      window.setTimeout(() => setLoading(false), 4000),
+      window.setTimeout(() => {
+        window.sessionStorage.setItem("sidequest-booted", "1");
+        setLoading(false);
+      }, 4000),
     ];
     return () => steps.forEach(window.clearTimeout);
   }, []);
@@ -166,7 +169,10 @@ export default function Home() {
               <span className="target-cursor">enter_</span>
             </div>
             <div className="boot-header">
-              <button type="button" className="boot-skip" onClick={() => setLoading(false)}>skip intro <ChevronRight size={15} /></button>
+              <button type="button" className="boot-skip" onClick={() => {
+                window.sessionStorage.setItem("sidequest-booted", "1");
+                setLoading(false);
+              }}>skip intro <ChevronRight size={15} /></button>
             </div>
             <div className="boot-copy">
               <p className="eyebrow">booting world</p>

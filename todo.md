@@ -34,3 +34,11 @@
 Desktop route checks confirm the homepage and Blog share the larger root/pragya terminal header, with route-specific labels (`home` and `writing.log`). The loader no longer shows the top-left logo or `SIDEQUEST://` brand. The Blog header has no duplicate Home button; its synced-from-Medium status sits beside the Medium source link and should be visually separated to avoid the repeated “Medium” reading.
 
 Final validation confirms the homepage header reads `root/pragya/ home`, the Blog header reads `root/pragya/ writing.log`, and the Blog’s right-side Home button is removed. The Blog source label is now separated from the Medium link for cleaner header reading. The initial-only loader behavior and removal of its top-left brand are implemented in Home.tsx.
+
+## Immediate Route Switching
+
+- [x] Ensure the four-second loader appears only on the first website entry in a browser session.
+- [x] Ensure Home ↔ Blog navigation switches immediately without replaying the loader.
+- [x] Validate both directions and responsive behavior, then save a checkpoint.
+
+Route validation findings: a fresh Home capture shows the Minecraft loader still running for the intended four-second entry sequence, with no top-left logo or SIDEQUEST mark. The Blog route renders directly in the same session without the loader. This confirms the loader is scoped to initial Home entry rather than in-app page switching.
