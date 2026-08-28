@@ -1,7 +1,6 @@
-# Supplied ASCII Identity Portrait
+# Photo Identity Portrait
 
-- [x] Prepare the newly supplied ASCII source for the identity-card format.
-- [x] Replace the terminal-dot image with the supplied ASCII portrait while preserving the card shell.
-- [x] Validate the supplied portrait on desktop: the complete source renders clearly in the identity card.
-- [x] Validate the supplied portrait at mobile width: the full source remains intact and contained within the identity card.
-- [x] Validate the user-supplied ASCII portrait and production build, ready for the release checkpoint.
+- [x] Prepare Pragya’s supplied photo for the managed portfolio asset store.
+- [x] Replace the ASCII artwork with Pragya’s photo while retaining the established identity-card framing.
+- [x] Validate the photo identity card at desktop and mobile widths: the genuine portrait remains clearly visible and correctly framed.
+- [x] Validate the photo identity card and production build, ready for the release checkpoint.

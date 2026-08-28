@@ -172,3 +172,5 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--signal); outlin
 /* Yellow accent migration: all former amber interface signals now use pure #FFFF00. */
 :root { --amber: #ffff00; }
 .placeholder-note { background: rgba(255,255,0,.06); }
+/* Identity photo: the genuine uploaded portrait stays unfiltered inside the existing terminal card. */
+.portrait-photo { position: relative; z-index: 1; display: block; width: 100%; height: 332px; object-fit: cover; object-position: center; filter: none; }
