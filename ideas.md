@@ -97,3 +97,5 @@ The first version will include an editable hero identity panel with an ASCII por
 - A faint vertical Signal Cyan route runs through the workspace and joins section-level panels, making every section read as part of one continuing personal system.
 - Cyan emphasis uses a terminal-like cursor and channel-shift effect rather than an editorial italic treatment.
 - Missing contact details are presented as intentional `replace://` machine fields, preserving the portfolio voice until real handles are supplied.
+- The dedicated Blog archive carries the `SIDEQUEST://` wordmark, a restrained Signal Cyan route rail, and a small 16-bit night-world origin-memory trace; this reinforces the shared personal operating-system narrative without reintroducing the removed homepage logo.
+- Blog posts retain their canonical Medium source links and are framed as imported dossiers through file labels, status metadata, tags, command blocks, and concise route annotations.

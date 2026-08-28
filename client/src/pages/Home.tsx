@@ -18,7 +18,7 @@ import {
   Zap,
 } from "lucide-react";
 import { type CSSProperties, useEffect, useState } from "react";
-import { toast } from "sonner";
+import { useLocation } from "wouter";
 
 type Project = {
   id: string;
@@ -115,6 +115,7 @@ export default function Home() {
   const [activeNav, setActiveNav] = useState("home");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [istTime, setIstTime] = useState(formatIST());
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const steps = [
@@ -202,7 +203,7 @@ export default function Home() {
                 className={`rail-command ${activeNav === id ? "active" : ""}`}
                 onClick={() => {
                   if (id === "blog") {
-                    toast("Blog archive coming soon.");
+                    setLocation("/blog");
                     return;
                   }
                   navigateTo(id as string);
