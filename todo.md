@@ -5,3 +5,10 @@
 - [x] Import the available Medium writing into the new Blog page with source links.
 - [x] Validate Blog navigation, article presentation, and mobile layout: the separate archive and imported post are clear at desktop and 375px widths.
 - [x] Validate the dedicated Medium Blog page and production build, ready for the release checkpoint.
+
+## Blog Refinement
+
+- [ ] Match Blog headline and metadata sizes to the homepage hierarchy.
+- [ ] Widen the Blog content box while preserving mobile containment.
+- [ ] Retrieve and import original Medium post images where publicly available.
+- [ ] Validate the refinement and save a checkpoint.
