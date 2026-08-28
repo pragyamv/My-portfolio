@@ -250,3 +250,19 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--signal); outlin
   .article-body h4 { font-size: .84rem; }
   .article-body pre { font-size: .64rem; }
 }
+
+/* Persistent header refinement: root/pragya is the single contextual Home control across routes. */
+.app-header { justify-content: space-between; padding-left: 1.4rem; }
+.app-header-home { display: inline-flex; gap: .62rem; align-items: center; color: #f6f7fb; text-decoration: none; font: 400 .74rem/1 "JetBrains Mono", monospace; letter-spacing: .025em; transition: color .18s var(--ease-out), transform .18s var(--ease-out); }
+.app-header-home:hover { color: #ffff00; transform: translateX(2px); }
+.app-header-home small { color: #8092a5; font: inherit; }
+.boot-header { justify-content: flex-end; }
+.blog-header { grid-template-columns: 1fr auto auto; }
+.blog-header-actions { grid-column: 3; }
+@media (max-width: 760px) {
+  .app-header { justify-content: space-between; padding: 0 1rem; }
+  .app-header-home { font-size: .68rem; }
+  .app-header-home small { display: none; }
+  .blog-header { grid-template-columns: 1fr auto; }
+  .blog-header-actions { grid-column: 2; }
+}

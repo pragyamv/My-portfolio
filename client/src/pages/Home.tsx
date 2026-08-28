@@ -18,7 +18,7 @@ import {
   Zap,
 } from "lucide-react";
 import { type CSSProperties, useEffect, useState } from "react";
-import { useLocation } from "wouter";
+import { Link, useLocation } from "wouter";
 
 type Project = {
   id: string;
@@ -108,9 +108,11 @@ function formatIST() {
 }
 
 export default function Home() {
-  const [loading, setLoading] = useState(
-    () => !new URLSearchParams(window.location.search).has("skipIntro"),
-  );
+  const [loading, setLoading] = useState(() => {
+    const skipped = new URLSearchParams(window.location.search).has("skipIntro");
+    const hasBooted = window.sessionStorage.getItem("sidequest-booted") === "1";
+    return !skipped && !hasBooted;
+  });
   const [bootProgress, setBootProgress] = useState(3);
   const [activeNav, setActiveNav] = useState("home");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -118,6 +120,10 @@ export default function Home() {
   const [, setLocation] = useLocation();
 
   useEffect(() => {
+    if (!loading) {
+      window.sessionStorage.setItem("sidequest-booted", "1");
+      return;
+    }
     const steps = [
       window.setTimeout(() => setBootProgress(22), 250),
       window.setTimeout(() => setBootProgress(46), 900),
@@ -160,7 +166,6 @@ export default function Home() {
               <span className="target-cursor">enter_</span>
             </div>
             <div className="boot-header">
-              <div className="boot-brand"><img src="/manus-storage/sidequest-prompt-mark_c6087525.png" alt="" /> SIDEQUEST://</div>
               <button type="button" className="boot-skip" onClick={() => setLoading(false)}>skip intro <ChevronRight size={15} /></button>
             </div>
             <div className="boot-copy">
@@ -181,6 +186,11 @@ export default function Home() {
         transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
       >
         <header className="app-header">
+          <Link href="/" className="app-header-home">
+            <span className="terminal-prompt-mark" aria-hidden="true">›</span>
+            <span>root/pragya/</span>
+            <small>home</small>
+          </Link>
           <div className="header-status">
             <span className="online-dot" /> <span>portfolio.exe</span>
             <span className="header-divider" />

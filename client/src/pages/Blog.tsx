@@ -4,7 +4,6 @@
  */
 import {
   ArrowUpRight,
-  House,
   BookOpen,
   CalendarDays,
   Clock3,
@@ -27,13 +26,10 @@ export default function Blog() {
           <span className="blog-root-label">root/pragya/</span>
           <small>writing.log</small>
         </Link>
-        <div className="blog-header-status"><span className="online-dot" /> writing.log <i /> synced from Medium</div>
-        <div className="blog-header-actions">
-          <Link href="/" className="blog-home-link"><House size={14} /> Home</Link>
-          <a className="blog-medium-link" href="https://medium.com/@pragyamv" target="_blank" rel="noreferrer">
-            Medium <ArrowUpRight size={14} />
-          </a>
-        </div>
+        <div className="blog-header-status"><span className="online-dot" /> writing.log <i /> synced from source</div>
+        <a className="blog-medium-link" href="https://medium.com/@pragyamv" target="_blank" rel="noreferrer">
+          Medium <ArrowUpRight size={14} />
+        </a>
       </header>
 
       <main className="blog-workspace">
