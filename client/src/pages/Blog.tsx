@@ -3,8 +3,8 @@
  * The blog keeps the black, white-first terminal system and uses bl (#0000FF) for active signals.
  */
 import {
-  ArrowLeft,
   ArrowUpRight,
+  House,
   BookOpen,
   CalendarDays,
   Clock3,
@@ -23,14 +23,17 @@ export default function Blog() {
     <div className="blog-page">
       <header className="blog-header">
         <Link href="/" className="blog-back">
-          <span className="sidequest-cursor" aria-hidden="true"><i /><i /><i /></span>
-          <span>SIDEQUEST://</span>
+          <span className="terminal-prompt-mark" aria-hidden="true">›</span>
+          <span className="blog-root-label">root/pragya/</span>
           <small>writing.log</small>
         </Link>
         <div className="blog-header-status"><span className="online-dot" /> writing.log <i /> synced from Medium</div>
-        <a className="blog-medium-link" href="https://medium.com/@pragyamv" target="_blank" rel="noreferrer">
-          Medium <ArrowUpRight size={14} />
-        </a>
+        <div className="blog-header-actions">
+          <Link href="/" className="blog-home-link"><House size={14} /> Home</Link>
+          <a className="blog-medium-link" href="https://medium.com/@pragyamv" target="_blank" rel="noreferrer">
+            Medium <ArrowUpRight size={14} />
+          </a>
+        </div>
       </header>
 
       <main className="blog-workspace">

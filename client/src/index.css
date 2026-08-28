@@ -207,3 +207,46 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--signal); outlin
   .medium-figure img { max-height: 400px; }
   .medium-figure-tall img { max-height: 480px; }
 }
+
+/* Blog refinement: the writing route inherits the homepage header scale and uses terminal-style root navigation. */
+.blog-header { grid-template-columns: 1fr auto auto; }
+.blog-back { gap: .62rem; font-size: .74rem; letter-spacing: .025em; }
+.blog-back small { margin-left: .2rem; color: #8092a5; font-size: .74rem; }
+.terminal-prompt-mark { color: #0000ff; font-size: 1.05rem; line-height: 1; }
+.blog-root-label { color: #f6f7fb; }
+.blog-header-actions { display: inline-flex; gap: 1rem; align-items: center; justify-self: end; }
+.blog-home-link { display: inline-flex; gap: .35rem; align-items: center; color: #dce9e9; text-decoration: none; font-size: .74rem; letter-spacing: .025em; transition: color .18s var(--ease-out), transform .18s var(--ease-out); }
+.blog-home-link:hover { color: #ffff00; transform: translateX(-2px); }
+.blog-medium-link { font-size: .74rem; }
+.blog-intro h1 { font-size: clamp(2.45rem, 5.1vw, 5.35rem); }
+.blog-lede { font-size: .86rem; line-height: 1.85; }
+.blog-stats { font-size: .8rem; }
+.blog-kicker { font-size: .76rem; }
+.blog-index .index-head { font-size: .72rem; }
+.index-entry strong { font-size: .78rem; }
+.index-entry small, .index-source { font-size: .66rem; }
+.article-topline { font-size: .7rem; }
+.article-meta { font-size: .78rem; }
+.medium-article h2 { font-size: clamp(1.65rem, 3.15vw, 2.55rem); }
+.article-body { font-size: .86rem; line-height: 1.9; }
+.article-body h3 { font-size: 1.12rem; }
+.article-body h4 { font-size: .9rem; }
+.article-body pre { font-size: .72rem; }
+@media (max-width: 760px) {
+  .blog-header { grid-template-columns: 1fr auto; }
+  .blog-header-actions { gap: .7rem; }
+  .blog-back, .blog-back small, .blog-home-link, .blog-medium-link { font-size: .68rem; }
+  .blog-intro h1 { font-size: clamp(2.3rem, 11.5vw, 3.7rem); }
+  .blog-lede { font-size: .78rem; }
+  .blog-stats { font-size: .72rem; }
+  .blog-kicker { font-size: .7rem; }
+  .blog-index .index-head { font-size: .68rem; }
+  .index-entry strong { font-size: .74rem; }
+  .index-entry small, .index-source { font-size: .62rem; }
+  .article-topline { font-size: .64rem; }
+  .article-meta { font-size: .7rem; }
+  .article-body { font-size: .78rem; }
+  .article-body h3 { font-size: 1rem; }
+  .article-body h4 { font-size: .84rem; }
+  .article-body pre { font-size: .64rem; }
+}
