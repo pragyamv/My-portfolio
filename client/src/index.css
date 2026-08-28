@@ -266,3 +266,20 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--signal); outlin
   .blog-header { grid-template-columns: 1fr auto; }
   .blog-header-actions { grid-column: 2; }
 }
+
+/* Homepage lower hierarchy: remove the build detour, keep contact compact, and make the remaining utility text easier to read. */
+.contact-section { margin-top: clamp(3.5rem, 7vw, 6rem); padding: clamp(2.7rem, 5vw, 4.2rem) clamp(0rem, 3vw, 4rem); }
+.contact-section h2 { margin: .55rem 0 1rem; font-size: clamp(2rem, 4.35vw, 4.8rem); }
+.contact-section > p:not(.eyebrow) { font-size: .84rem; line-height: 1.8; }
+.email-button { font-size: .72rem; }
+.email-button small { font-size: .5rem; }
+.contact-link { font-size: .7rem; }
+.workspace-footer { font-size: .64rem; }
+@media (max-width: 760px) {
+  .contact-section { margin-top: 3.5rem; padding-top: 2.4rem; padding-bottom: 2.8rem; }
+  .contact-section h2 { font-size: clamp(1.85rem, 10.5vw, 3rem); }
+  .contact-section > p:not(.eyebrow) { font-size: .78rem; }
+  .email-button { font-size: .66rem; }
+  .contact-link { font-size: .64rem; }
+  .workspace-footer { font-size: .6rem; }
+}

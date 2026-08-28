@@ -42,3 +42,13 @@ Final validation confirms the homepage header reads `root/pragya/ home`, the Blo
 - [x] Validate both directions and responsive behavior, then save a checkpoint.
 
 Route validation findings: a fresh Home capture shows the Minecraft loader still running for the intended four-second entry sequence, with no top-left logo or SIDEQUEST mark. The Blog route renders directly in the same session without the loader. This confirms the loader is scoped to initial Home entry rather than in-app page switching.
+
+## Homepage Lower-Section Cleanup
+
+- [x] Remove the Now Building section from the homepage.
+- [x] Make the contact box smaller.
+- [x] Make the “got an interesting problem?” box smaller.
+- [x] Slightly increase the fonts below those sections.
+- [x] Validate desktop and mobile layout, then save a checkpoint.
+
+Lower-page validation findings: full desktop and 375px mobile captures confirm the Now Building section is removed, the contact/problem panel is visibly shorter, and the remaining contact, link, and footer text is slightly larger without overflow.
