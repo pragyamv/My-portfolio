@@ -8,7 +8,7 @@
 
 ## Blog Refinement
 
-- [ ] Match Blog headline and metadata sizes to the homepage hierarchy.
-- [ ] Widen the Blog content box while preserving mobile containment.
-- [ ] Retrieve and import original Medium post images where publicly available.
-- [ ] Validate the refinement and save a checkpoint.
+- [x] Match Blog headline and metadata sizes to the homepage hierarchy.
+- [x] Widen the Blog content box while preserving mobile containment.
+- [x] Retrieve and import original Medium post images where publicly available.
+- [x] Validate the refinement: matched homepage typography, wider reader, original screenshots, and responsive single-column presentation are verified.

@@ -24,3 +24,7 @@ The public RSS feed exposes two article-image assets associated with the post:
 The feed also exposes a 150px author avatar, but the Blog page uses Pragya’s existing portfolio profile photo instead so the identity treatment stays consistent.
 
 Visual placement notes: the first image is a 572×300 screenshot of the Proton VPN close warning (“Active connection found”), matching the article’s sentence about the message shown when closing the window. The second is a 569×985 tall server list showing country sections, server names, load percentages, and IPv6/status indicators; it belongs with the WireGuard server-selection explanation.
+
+## Refinement validation
+
+The desktop Blog capture now shows the 572×300 warning dialog after the closing-window note and the 569×985 server-load screenshot beside the WireGuard server-selection step. The layout is wider and the homepage-scale headline and metadata read more consistently. The mobile full-page capture preserves the single-column route and both images; a top-viewport pass is still appropriate before the final checkpoint.

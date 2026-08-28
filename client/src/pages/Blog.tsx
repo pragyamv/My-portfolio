@@ -83,6 +83,10 @@ export default function Blog() {
               <p>Installing Proton VPN was easy- a few commands and I was done.</p>
               <p>The next day, I noticed that I wasn&apos;t connected and opened up the app, only to find out that the connection terminated every time the app was closed.</p>
               <p className="article-aside">The message shown every time I tried closing the window</p>
+              <figure className="medium-figure">
+                <img src="/manus-storage/pragya-medium-01_fbf1c8f6.png" alt="Proton VPN warning dialog showing that closing the application will cancel the current VPN connection" />
+                <figcaption>the exact warning that sent me down the rabbit hole</figcaption>
+              </figure>
               <p>This was a problem because I definitely did not want the app window open at all times.</p>
 
               <h3>The Fix :</h3>
@@ -93,6 +97,10 @@ export default function Blog() {
                 <div>
                   <h4>Download your Proton WireGuard config :</h4>
                   <p>Sign in to your Proton account, and go to Downloads -&gt; WireGuard configuration. Choose a server that has a low load, and download the config. Green -&gt; lower load, red -&gt; higher load.</p>
+                  <figure className="medium-figure medium-figure-tall">
+                    <img src="/manus-storage/pragya-medium-02_d1bbfaa4.png" alt="Proton VPN server list showing country sections, server names, load percentages, and connection indicators" />
+                    <figcaption>server loads, exactly as they appeared in the app</figcaption>
+                  </figure>
                 </div>
               </section>
 
