@@ -11,6 +11,7 @@ import {
   Braces,
   ChevronRight,
   CircleDot,
+  Cpu,
   Github,
   Mail,
   X,
@@ -130,10 +131,7 @@ export default function Home() {
       window.setTimeout(() => setBootProgress(82), 2250),
       window.setTimeout(() => setBootProgress(92), 2850),
       window.setTimeout(() => setBootProgress(100), 3450),
-      window.setTimeout(() => {
-        window.sessionStorage.setItem("sidequest-booted", "1");
-        setLoading(false);
-      }, 4000),
+      window.setTimeout(() => setLoading(false), 4000),
     ];
     return () => steps.forEach(window.clearTimeout);
   }, []);
@@ -168,10 +166,7 @@ export default function Home() {
               <span className="target-cursor">enter_</span>
             </div>
             <div className="boot-header">
-              <button type="button" className="boot-skip" onClick={() => {
-                window.sessionStorage.setItem("sidequest-booted", "1");
-                setLoading(false);
-              }}>skip intro <ChevronRight size={15} /></button>
+              <button type="button" className="boot-skip" onClick={() => setLoading(false)}>skip intro <ChevronRight size={15} /></button>
             </div>
             <div className="boot-copy">
               <p className="eyebrow">booting world</p>
@@ -340,6 +335,25 @@ export default function Home() {
             </div>
           </section>
 
+          <section className="build-section">
+            <div className="build-terminal">
+              <div className="module-tab"><span>now_building.log</span><span className="signal-pulse" /></div>
+              <div className="terminal-lines">
+                <p><span>$</span> focus --this-week</p>
+                <p className="terminal-answer">interpretable ML + small magical interfaces</p>
+                <p><span>$</span> toolkit --show</p>
+                <div className="toolkit-chips"><i>PYTHON</i><i>PYTORCH</i><i>SQL</i><i>REACT</i><i>GIT</i></div>
+                <p><span>$</span> status</p>
+                <p className="terminal-answer amber">still curious<span className="cursor">_</span></p>
+              </div>
+            </div>
+            <div className="build-aside">
+              <Cpu size={26} />
+              <p>Not just a student portfolio.</p>
+              <strong>A record of what I keep returning to.</strong>
+              <div><span>NODE 07</span><span>LINK STABLE</span></div>
+            </div>
+          </section>
 
           <section id="contact" className="contact-section section-anchor">
             <div className="contact-routes"><span /> <span /> <span /></div>
