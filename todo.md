@@ -52,3 +52,11 @@ Route validation findings: a fresh Home capture shows the Minecraft loader still
 - [x] Validate desktop and mobile layout, then save a checkpoint.
 
 Lower-page validation findings: full desktop and 375px mobile captures confirm the Now Building section is removed, the contact/problem panel is visibly shorter, and the remaining contact, link, and footer text is slightly larger without overflow.
+
+Project-section validation findings: desktop and 375px full-page captures show four distinct GitHub-backed dossiers—RAG + Chatbot / Customer Support, TrueScan, MoleColyte, and CA-6—with readable summaries, tags, and inspect actions. No horizontal overflow is visible at mobile width.
+
+## GitHub Project Dossiers
+
+- [x] Add the verified RAG + Chatbot and Customer Support workflow from the nested n8n path.
+- [x] Add verified TrueScan, MoleColyte, and CA-6 dossier content with canonical GitHub links.
+- [x] Validate the four-project section and responsive presentation, then save a checkpoint.

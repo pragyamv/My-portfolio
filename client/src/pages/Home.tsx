@@ -29,59 +29,81 @@ type Project = {
   accent: "cyan" | "amber" | "blue";
   metrics: Array<[string, string]>;
   note: string;
+  github: string;
 };
 
 const projects: Project[] = [
   {
-    id: "noise-atlas",
+    id: "rag-chatbot-customer-support",
     number: "01",
-    title: "Night Signal Atlas",
-    type: "audio ML · mapping",
+    title: "RAG + Chatbot / Customer Support",
+    type: "RAG · workflow automation",
     summary:
-      "A city-scale listening experiment that turns everyday sound into an explorable, classifiable signal.",
-    tags: ["PyTorch", "Librosa", "GeoJSON"],
+      "A cohesive n8n workflow that turns Google Drive documents into a Pinecone knowledge base for chat and policy-aware support replies.",
+    tags: ["n8n", "Pinecone", "AI Agent"],
     accent: "cyan",
     metrics: [
-      ["model", "CNN spectrogram classifier"],
-      ["signal", "urban acoustic scenes"],
-      ["output", "interactive sound-map"],
+      ["ingest", "Google Drive → chunk → embed"],
+      ["index", "Pinecone vector store"],
+      ["automate", "Gmail classification + reply"],
     ],
     note:
-      "Replace this sample project with a build you are proud of — the card, dossier and tags are all ready to edit.",
+      "A practical RAG system with one knowledge layer serving both an interactive chatbot and an automated customer-support loop.",
+    github: "https://github.com/pragyamv/n8n/tree/main/RAG%20%2B%20Chatbot%20and%20Customer%20support",
   },
   {
-    id: "seedling",
+    id: "truescan",
     number: "02",
-    title: "Seedling / Study Copilot",
-    type: "LLM · learning systems",
+    title: "TrueScan",
+    type: "medical CV · full-stack dashboard",
     summary:
-      "A tiny study companion that converts messy notes into gentler prompts, retrieval trails, and next questions.",
-    tags: ["RAG", "FastAPI", "Embeddings"],
+      "A medical-image authenticity and anomaly analysis system that ensembles three vision models to flag manipulated knee X-rays.",
+    tags: ["PyTorch", "YOLOv8", "Flask"],
     accent: "amber",
     metrics: [
-      ["model", "retrieval-augmented assistant"],
-      ["signal", "lecture notes + links"],
-      ["output", "question-led revision"],
+      ["ensemble", "ResNet50 + VGG19_BN + YOLOv8m-cls"],
+      ["decision", "2-of-3 majority vote"],
+      ["output", "clinical dashboard + PDF report"],
     ],
     note:
-      "The most interesting systems do not only answer; they help you find the next thought worth having.",
+      "3rd Place in the ML/DL track at a state-level inter-collegiate tech exhibition. Pragya contributed the frontend, reports, database structure, and Flask API work.",
+    github: "https://github.com/pragyamv/TrueScan",
   },
   {
-    id: "drift",
+    id: "molecolyte",
     number: "03",
-    title: "Drift Detector",
-    type: "MLOps · visual telemetry",
+    title: "MoleColyte",
+    type: "geometric deep learning · chemistry",
     summary:
-      "A deliberately visual way to spot when model inputs wander away from the data a system learned from.",
-    tags: ["Python", "Evidently", "Docker"],
+      "A 3D equivariant graph pipeline that pre-trains on QM9 geometry, then fine-tunes on Tox21 for multi-assay molecular toxicity prediction.",
+    tags: ["EGNN", "DGL", "Tox21"],
     accent: "blue",
     metrics: [
-      ["model", "feature drift monitor"],
-      ["signal", "distribution shift"],
-      ["output", "human-readable alerts"],
+      ["geometry", "physics-optimised molecular graphs"],
+      ["architecture", "3-layer E(n)-equivariant GNN"],
+      ["output", "12-assay toxicity prediction"],
     ],
     note:
-      "A future-facing placeholder for any production-minded project, dashboard, or model reliability experiment.",
+      "Functional Group Nodes add chemical hierarchy to the graph so meaningful substructures can communicate in fewer message-passing steps.",
+    github: "https://github.com/pragyamv/MoleColyte",
+  },
+  {
+    id: "ca-6",
+    number: "04",
+    title: "CA-6",
+    type: "vision-language · local inference",
+    summary:
+      "A fully local image-understanding system that classifies objects and writes scene descriptions through a Flask API and Ollama.",
+    tags: ["LLaVA-Phi-3", "OpenCV", "Ollama"],
+    accent: "cyan",
+    metrics: [
+      ["runtime", "LLaVA-Phi-3 via Ollama"],
+      ["pipeline", "OpenCV → RGB → Base64"],
+      ["api", "GET /models · POST /classify"],
+    ],
+    note:
+      "Designed for private, offline vision-language experiments with auto classification and user-supplied label-constrained modes.",
+    github: "https://github.com/pragyamv/CA-6",
   },
 ];
 
@@ -291,7 +313,7 @@ export default function Home() {
               <div className="work-telemetry">
                 <span>system posture</span>
                 <strong>designed to wander.<br />built to learn.</strong>
-                <div><i>3 dossiers</i><i>∞ tabs</i></div>
+                <div><i>4 dossiers</i><i>∞ tabs</i></div>
               </div>
             </div>
             <div className="project-stack">
@@ -380,6 +402,7 @@ export default function Home() {
                 <div className="inspector-visual"><img src="/manus-storage/sidequest-terminal-window_242a6979.png" alt="Pixel-art late-night laptop workstation" /><div className="scan-line" /></div>
                 <div className="metrics-list">{selectedProject.metrics.map(([key, value]) => <div key={key}><span>{key}</span><strong>{value}</strong></div>)}</div>
                 <div className="placeholder-note"><Braces size={18} /><p>{selectedProject.note}</p></div>
+                <a className="inspector-repo-link" href={selectedProject.github} target="_blank" rel="noreferrer"><Github size={16} /> open repository <ArrowUpRight size={15} /></a>
                 <button type="button" className="close-dossier" onClick={() => setSelectedProject(null)}>return to workspace <ChevronRight size={16} /></button>
               </div>
             </motion.article>
