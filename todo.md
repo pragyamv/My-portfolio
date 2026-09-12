@@ -60,3 +60,10 @@ Project-section validation findings: desktop and 375px full-page captures show f
 - [x] Add the verified RAG + Chatbot and Customer Support workflow from the nested n8n path.
 - [x] Add verified TrueScan, MoleColyte, and CA-6 dossier content with canonical GitHub links.
 - [x] Validate the four-project section and responsive presentation, then save a checkpoint.
+
+## Cursor Interaction
+
+- [x] Add a custom terminal-signal cursor that feels interesting without obscuring content.
+- [x] Add contextual hover and active states for interactive elements.
+- [x] Preserve touch-device and reduced-motion fallbacks.
+- [x] Validate the cursor treatment and save a checkpoint.

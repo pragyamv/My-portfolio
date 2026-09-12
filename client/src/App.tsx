@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import SignalCursor from "./components/SignalCursor";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Blog from "./pages/Blog";
 import Home from "./pages/Home";
@@ -27,6 +28,7 @@ function App() {
       <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
           <Toaster theme="dark" position="bottom-right" />
+          <SignalCursor />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

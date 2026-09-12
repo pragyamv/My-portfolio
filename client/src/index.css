@@ -287,3 +287,28 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--signal); outlin
 /* GitHub-backed project dossier action */
 .inspector-repo-link { display: inline-flex; align-items: center; gap: .4rem; width: fit-content; margin-top: 1rem; padding: .55rem .7rem; border: 1px solid rgba(0,0,255,.55); color: #f6f7fb; background: rgba(0,0,255,.12); font: .62rem/1 "JetBrains Mono", monospace; text-decoration: none; transition: background .18s var(--ease-out), color .18s var(--ease-out), transform .18s var(--ease-out); }
 .inspector-repo-link:hover { color: #ffff00; background: rgba(0,0,255,.25); transform: translateX(3px); }
+
+/* Signal reticle cursor: a small terminal instrument, not a decorative overlay. */
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html, html * { cursor: none !important; }
+  .signal-cursor { position: fixed; z-index: 100; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; opacity: 0; will-change: transform; transition: opacity .18s ease; }
+  .signal-cursor.is-visible { opacity: 1; }
+  .signal-cursor-ring { position: absolute; top: -9px; left: -9px; width: 18px; height: 18px; border: 1px solid rgba(87,230,212,.78); border-radius: 50%; box-shadow: 0 0 12px rgba(0,0,255,.34); transition: transform .18s var(--ease-out), border-color .18s ease, box-shadow .18s ease; }
+  .signal-cursor-core { position: absolute; top: -2px; left: -2px; width: 4px; height: 4px; background: #ffff00; box-shadow: 0 0 8px rgba(255,255,0,.8); }
+  .signal-cursor-arm { position: absolute; background: #83a8ff; opacity: .9; transition: transform .18s var(--ease-out), background .18s ease; }
+  .signal-cursor-arm-top, .signal-cursor-arm-bottom { left: -1px; width: 2px; height: 6px; }
+  .signal-cursor-arm-top { top: -17px; }
+  .signal-cursor-arm-bottom { top: 11px; }
+  .signal-cursor-arm-left, .signal-cursor-arm-right { top: -1px; width: 6px; height: 2px; }
+  .signal-cursor-arm-left { left: -17px; }
+  .signal-cursor-arm-right { left: 11px; }
+  .signal-cursor-label { position: absolute; top: 13px; left: 13px; color: rgba(87,230,212,.72); font: 500 8px/1 "JetBrains Mono", monospace; letter-spacing: .04em; white-space: nowrap; transform: translateY(2px); transition: color .18s ease, transform .18s var(--ease-out); }
+  .signal-cursor.is-interactive .signal-cursor-ring { transform: scale(1.65); border-color: #ffff00; box-shadow: 0 0 0 4px rgba(0,0,255,.16), 0 0 18px rgba(255,255,0,.32); }
+  .signal-cursor.is-interactive .signal-cursor-arm { background: #ffff00; }
+  .signal-cursor.is-interactive .signal-cursor-label { color: #ffff00; transform: translate(3px, 2px); }
+  .signal-cursor.is-pressed .signal-cursor-ring { transform: scale(.72); }
+  .signal-cursor.is-pressed .signal-cursor-core { background: #fff; }
+}
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .signal-cursor { display: none; }
+}
