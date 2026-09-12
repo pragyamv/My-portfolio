@@ -67,3 +67,10 @@ Project-section validation findings: desktop and 375px full-page captures show f
 - [x] Add contextual hover and active states for interactive elements.
 - [x] Preserve touch-device and reduced-motion fallbacks.
 - [x] Validate the cursor treatment and save a checkpoint.
+
+## Side Quests Work Page
+
+- [x] Shorten the Side Quests About copy and remove the explanatory text below the section heading.
+- [x] Add a pixel-animation treatment beneath “after hours.”
+- [x] Link “after hours” to a dedicated page that showcases Pragya’s work.
+- [x] Validate the interaction and page at desktop and mobile widths, then save a checkpoint.

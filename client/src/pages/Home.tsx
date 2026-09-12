@@ -108,7 +108,7 @@ const projects: Project[] = [
 ];
 
 const fieldNotes = [
-  ["after hours", "learning tiny web experiments that make technical ideas feel touchable"],
+  ["after hours", "tiny web experiments made after dark"],
   ["weekend route", "taking photographs of strange light, old signage, and accidental geometry"],
   ["currently looping", "building in public, tinkering with agent workflows, and collecting good questions"],
 ];
@@ -350,12 +350,19 @@ export default function Home() {
             <div className="field-copy">
               <p className="eyebrow">03 / non-linear evidence</p>
               <h2>side quests<br />make the system.</h2>
-              <p className="body-copy">The best work is rarely made in a straight line. This is where hobbies, borrowed fascinations, and unreasonably specific experiments get to matter.</p>
               <div className="field-notes">
                 {fieldNotes.map(([label, note], index) => (
                   <div className="field-note" key={label} style={{ "--note-index": index } as CSSProperties}>
                     <span>0{index + 1}</span>
-                    <div><strong>{label}</strong><p>{note}</p></div>
+                    <div>
+                      {label === "after hours" ? (
+                        <Link href="/after-hours" className="field-note-link">
+                          <strong>{label}</strong>
+                          <span className="pixel-quest-animation" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /><i /></span>
+                          <p>{note}</p>
+                        </Link>
+                      ) : <><strong>{label}</strong><p>{note}</p></>}
+                    </div>
                   </div>
                 ))}
               </div>

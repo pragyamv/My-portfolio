@@ -8,6 +8,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import SignalCursor from "./components/SignalCursor";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Blog from "./pages/Blog";
+import AfterHours from "./pages/AfterHours";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
@@ -16,6 +17,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/blog" component={Blog} />
+      <Route path="/after-hours" component={AfterHours} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
