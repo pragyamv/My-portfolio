@@ -90,3 +90,9 @@ Pixel-animation copy validation: desktop and 375px mobile captures show the new 
 - [x] Make the nested pixel-animation entry open the dedicated work page instead of using `after hours` as the link label.
 - [x] Match `weekend route` and `currently looping` to the `after hours` size and yellow color.
 - [x] Validate the hierarchy and responsive layout, then save a checkpoint.
+
+## Side Quests Label Styling Rollback
+
+- [x] Restore the original `after hours` size and color.
+- [x] Apply the restored treatment to `weekend route` and `currently looping`.
+- [x] Validate desktop/mobile styling and save a checkpoint.
