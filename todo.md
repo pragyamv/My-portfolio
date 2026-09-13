@@ -83,3 +83,10 @@ Project-section validation findings: desktop and 375px full-page captures show f
 - [x] Validate the section and save a checkpoint.
 
 Pixel-animation copy validation: desktop and 375px mobile captures show the new `pixel animations.` descriptor at the requested heading scale, a shorter About line, and a slightly larger yellow `after hours` link with its animation intact and contained.
+
+## Side Quests Hierarchy Refinement
+
+- [x] Move `pixel animations.` and its About copy under `after hours` as a nested sub-quest.
+- [x] Make the nested pixel-animation entry open the dedicated work page instead of using `after hours` as the link label.
+- [x] Match `weekend route` and `currently looping` to the `after hours` size and yellow color.
+- [x] Validate the hierarchy and responsive layout, then save a checkpoint.

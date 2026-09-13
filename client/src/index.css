@@ -343,3 +343,14 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--signal); outlin
 .field-note-link strong { display: inline-block; color: #ffff00; font-size: 1.02rem; line-height: 1.2; letter-spacing: -.03em; }
 .field-note-link:hover strong, .field-note-link:focus-visible strong { color: #f6f7fb; }
 @media (max-width: 760px) { .field-quest-heading { font-size: .9rem; }.field-about { font-size: .64rem; }.field-note-link strong { font-size: .92rem; } }
+
+/* Nested pixel-animation sub-quest hierarchy */
+.field-note-label { display: inline-block; color: #ffff00; font-size: 1.02rem; line-height: 1.2; letter-spacing: -.03em; }
+.field-note-label:hover, .field-note-label:focus-visible { color: var(--paper); }
+.field-note-parent > div > p { margin-bottom: .45rem; }
+.pixel-subquest-link { display: block; margin-top: .4rem; padding: .55rem .65rem .62rem; border-left: 1px solid rgba(0,0,255,.65); background: rgba(0,0,255,.06); color: inherit; text-decoration: none; transition: background .2s var(--ease-out), border-color .2s var(--ease-out); }
+.pixel-subquest-link:hover, .pixel-subquest-link:focus-visible { border-color: #ffff00; background: rgba(0,0,255,.14); }
+.pixel-subquest-link > strong { display: block; color: var(--signal); font-size: .86rem; line-height: 1.2; }
+.pixel-subquest-link:hover > strong, .pixel-subquest-link:focus-visible > strong { color: #ffff00; }
+.pixel-subquest-link .field-about { margin: .35rem 0 0; max-width: 20rem; font-size: .62rem; }
+@media (max-width: 760px) { .field-note-label { font-size: .92rem; }.pixel-subquest-link > strong { font-size: .8rem; }.pixel-subquest-link .field-about { font-size: .58rem; } }

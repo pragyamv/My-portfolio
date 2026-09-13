@@ -350,20 +350,22 @@ export default function Home() {
             <div className="field-copy">
               <p className="eyebrow">03 / non-linear evidence</p>
               <h2>side quests<br />make the system.</h2>
-              <h3 className="field-quest-heading">pixel animations.</h3>
-              <p className="field-about">A pixel playground for small animated scenes, curious experiments, and things made simply because they were fun to make.</p>
               <div className="field-notes">
                 {fieldNotes.map(([label, note], index) => (
-                  <div className="field-note" key={label} style={{ "--note-index": index } as CSSProperties}>
+                  <div className={`field-note ${label === "after hours" ? "field-note-parent" : ""}`} key={label} style={{ "--note-index": index } as CSSProperties}>
                     <span>0{index + 1}</span>
                     <div>
+                      <strong className="field-note-label">{label}</strong>
                       {label === "after hours" ? (
-                        <Link href="/after-hours" className="field-note-link">
-                          <strong>{label}</strong>
-                          <span className="pixel-quest-animation" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /><i /></span>
+                        <>
                           <p>{note}</p>
-                        </Link>
-                      ) : <><strong>{label}</strong><p>{note}</p></>}
+                          <Link href="/after-hours" className="pixel-subquest-link">
+                            <span className="pixel-quest-animation" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /><i /></span>
+                            <strong>pixel animations.</strong>
+                            <p className="field-about">A pixel playground for small animated scenes, curious experiments, and things made simply because they were fun to make.</p>
+                          </Link>
+                        </>
+                      ) : <p>{note}</p>}
                     </div>
                   </div>
                 ))}
