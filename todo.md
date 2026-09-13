@@ -106,3 +106,8 @@ Pixel-animation copy validation: desktop and 375px mobile captures show the new 
 
 - [x] Style only the visible `after hours`, `weekend route`, and `currently looping` text as larger yellow heading-like labels.
 - [x] Verify the exact text appearance and save a checkpoint.
+
+## Project Card Typography
+
+- [x] Increase the category line, tech-stack tags, and Inspect action text for every project.
+- [x] Validate project-section readability and save a checkpoint.
