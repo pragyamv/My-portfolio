@@ -355,6 +355,6 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--signal); outlin
 .pixel-subquest-link .field-about { margin: .35rem 0 0; max-width: 20rem; font-size: .62rem; }
 @media (max-width: 760px) { .field-note-label { font-size: .92rem; }.pixel-subquest-link > strong { font-size: .8rem; }.pixel-subquest-link .field-about { font-size: .58rem; } }
 
-/* Restore the original compact Side Quests label treatment across all top-level notes. */
-.field-note-label { color: var(--paper); font-size: inherit; line-height: inherit; letter-spacing: inherit; font-weight: 500; }
-.field-note-label:hover, .field-note-label:focus-visible { color: var(--paper); }
+/* Emphasize all top-level Side Quests labels consistently. */
+.field-note-label { color: var(--yellow); font-size: 0.82rem; line-height: 1.2; letter-spacing: -0.03em; font-weight: 600; }
+.field-note-label:hover, .field-note-label:focus-visible { color: var(--yellow); }

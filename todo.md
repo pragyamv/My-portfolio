@@ -96,3 +96,8 @@ Pixel-animation copy validation: desktop and 375px mobile captures show the new 
 - [x] Restore the original `after hours` size and color.
 - [x] Apply the restored treatment to `weekend route` and `currently looping`.
 - [x] Validate desktop/mobile styling and save a checkpoint.
+
+## Side Quests Label Emphasis Revision
+
+- [x] Make `after hours`, `weekend route`, and `currently looping` slightly larger and yellow.
+- [x] Validate desktop/mobile styling and save a checkpoint.
