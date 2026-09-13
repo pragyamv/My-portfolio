@@ -111,3 +111,9 @@ Pixel-animation copy validation: desktop and 375px mobile captures show the new 
 
 - [x] Increase the category line, tech-stack tags, and Inspect action text for every project.
 - [x] Validate project-section readability and save a checkpoint.
+
+## Project Card Color and Tech-Stack Refinement
+
+- [x] Unify all Inspect actions to one color.
+- [x] Make the tech-stack tags slightly larger across all project cards.
+- [x] Validate the project section and save a checkpoint.
