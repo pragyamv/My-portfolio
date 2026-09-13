@@ -74,3 +74,12 @@ Project-section validation findings: desktop and 375px full-page captures show f
 - [x] Add a pixel-animation treatment beneath “after hours.”
 - [x] Link “after hours” to a dedicated page that showcases Pragya’s work.
 - [x] Validate the interaction and page at desktop and mobile widths, then save a checkpoint.
+
+## Side Quests Pixel Animation Copy
+
+- [x] Add a heading that explicitly identifies the Side Quests work as pixel animations.
+- [x] Make `after hours` slightly larger and yellow at the heading scale.
+- [x] Rewrite the Side Quests About copy to match the pixel-animation direction.
+- [x] Validate the section and save a checkpoint.
+
+Pixel-animation copy validation: desktop and 375px mobile captures show the new `pixel animations.` descriptor at the requested heading scale, a shorter About line, and a slightly larger yellow `after hours` link with its animation intact and contained.

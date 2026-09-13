@@ -350,6 +350,8 @@ export default function Home() {
             <div className="field-copy">
               <p className="eyebrow">03 / non-linear evidence</p>
               <h2>side quests<br />make the system.</h2>
+              <h3 className="field-quest-heading">pixel animations.</h3>
+              <p className="field-about">A pixel playground for small animated scenes, curious experiments, and things made simply because they were fun to make.</p>
               <div className="field-notes">
                 {fieldNotes.map(([label, note], index) => (
                   <div className="field-note" key={label} style={{ "--note-index": index } as CSSProperties}>
